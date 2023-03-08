@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Material_001.material" type="Material" id=1]
-[ext_resource path="res://testchar.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Player/Material_001.material" type="Material" id=1]
+[ext_resource path="res://Scripts/testchar.gd" type="Script" id=2]
+
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "testchar_Cube001"
