@@ -17,7 +17,7 @@ var last = Vector3.ZERO
 
 #https://youtu.be/UpF7wm0186Q This video helped me get started
 
-onready var springarm: Spatial = $SpringArm/Spatial/InterpolatedCamera
+onready var springarm: Spatial = $Spatial/InterpolatedCamera
 onready var model: Spatial = $testchar
 
 func _ready():

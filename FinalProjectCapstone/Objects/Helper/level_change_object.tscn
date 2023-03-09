@@ -36,7 +36,7 @@ skeleton = NodePath("../..")
 [node name="Area2" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area2"]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
