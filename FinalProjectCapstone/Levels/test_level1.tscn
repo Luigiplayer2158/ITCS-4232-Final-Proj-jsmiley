@@ -208,6 +208,7 @@ mesh = SubResource( 6 )
 
 [node name="Spatial" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29545, 13.6391 )
+level_name = "Hub_1"
 
 [editable path="Player"]
 [editable path="Player/MovingPlayer/testchar"]
