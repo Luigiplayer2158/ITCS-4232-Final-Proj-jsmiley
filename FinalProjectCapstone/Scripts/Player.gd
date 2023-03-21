@@ -8,7 +8,7 @@ export var jump = 12
 
 export var gravity = 50
 
-onready var anim = $testchar/AnimationPlayer
+onready var anim = $funnyguy/AnimationPlayer
 
 var velocity = Vector3.ZERO
 
@@ -18,12 +18,12 @@ var last = Vector3.ZERO
 #https://youtu.be/UpF7wm0186Q This video helped me get started
 
 onready var springarm: Spatial = $Spatial/InterpolatedCamera
-onready var model: Spatial = $testchar
+onready var model: Spatial = $funnyguy
 
 func _ready():
-	anim.get_animation("run").set_loop(true)
+	anim.get_animation("walking").set_loop(true)
 	anim.get_animation("idle").set_loop(true)
-	anim.get_animation("jump").set_loop(false)
+	anim.get_animation("jumping").set_loop(false)
 	anim.get_animation("inair").set_loop(true)
 	anim.get_animation("land").set_loop(false)
 
@@ -51,7 +51,7 @@ func _physics_process(delta):
 		if jumping:
 			velocity.y = jump
 			snap = Vector3.ZERO
-			anim.play("jump")
+			anim.play("jumping")
 		elif landed:
 			anim.play("land")
 			snap = Vector3.DOWN
@@ -63,9 +63,9 @@ func _physics_process(delta):
 				if velocity.x == 0 and velocity.z == 0:
 					anim.play("idle")
 				else:
-					anim.play("run")
+					anim.play("walking")
 		elif snap == Vector3.ZERO:
-			if anim.current_animation == "jump":
+			if anim.current_animation == "jumping":
 				pass
 			else:
 				anim.play("inair")
@@ -77,7 +77,7 @@ func _physics_process(delta):
 			last.x = velocity.x
 			
 		look_direction = Vector2(last.z, last.x)
-		model.rotation.y = direction.rotated(Vector3.UP, springarm.rotation.y).normalized().y
+		model.rotation.y = direction.rotated(Vector3.UP, springarm.rotation.y).normalized().y + 180
 		model.rotation.y = look_direction.angle()
 
 #func _process(delta):
