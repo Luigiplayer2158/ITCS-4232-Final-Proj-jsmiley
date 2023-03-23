@@ -48,8 +48,22 @@ func _physics_process(delta):
 		velocity.z = (direction.z * speed)/2
 		velocity.y -= gravity * delta
 		
+#		if velocity.x >= 14 or velocity.x <= -14:
+#			if velocity.x >= 14:
+#				velocity.x = 14
+#			elif velocity.x <= 14:
+#				velocity.x = -14
+#		if velocity.z >= 14 or velocity.z <= -14:
+#			if velocity.z >= 14:
+#				velocity.z = 14
+#			elif velocity.z <= 14:
+#				velocity.z = -14
+				
+		
 		if jumping:
 			velocity.y = jump
+			velocity.x = last.x
+			velocity.z = last.z
 			snap = Vector3.ZERO
 			anim.play("jumping")
 		elif landed:
@@ -72,13 +86,14 @@ func _physics_process(delta):
 		
 		velocity = move_and_slide_with_snap(velocity, snap, Vector3.UP, true)
 		
-		if velocity.length() > 0.2:
+		if Vector2(velocity.x, velocity.z).length() > 0.2:
 			last.z = velocity.z
 			last.x = velocity.x
+			look_direction = Vector2(last.z, last.x)
+			model.rotation.y = direction.rotated(Vector3.UP, springarm.rotation.y).normalized().y + 180
+			model.rotation.y = look_direction.angle()
 			
-		look_direction = Vector2(last.z, last.x)
-		model.rotation.y = direction.rotated(Vector3.UP, springarm.rotation.y).normalized().y + 180
-		model.rotation.y = look_direction.angle()
+		
 
 #func _process(delta):
 	#springarm.translation = translation
