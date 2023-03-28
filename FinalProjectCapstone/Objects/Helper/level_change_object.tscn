@@ -39,5 +39,11 @@ skeleton = NodePath("../..")
 transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0 )
 shape = SubResource( 6 )
 
+[node name="OmniLight" type="OmniLight" parent="."]
+light_color = Color( 0.921569, 0.466667, 1, 1 )
+light_energy = 0.5
+shadow_enabled = true
+omni_range = 1.79089
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]
