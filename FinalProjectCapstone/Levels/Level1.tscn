@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/LevelModels/Level1.glb" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/RotateThis.gd" type="Script" id=3]
+[ext_resource path="res://Levels/RotateThisY.gd" type="Script" id=4]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Level1" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Cube002" parent="Level1" index="3"]
+script = ExtResource( 3 )
+spinSpeed = 0.02
+
+[node name="Cube005" parent="Level1" index="5"]
+script = ExtResource( 4 )
+
+[editable path="Level1"]

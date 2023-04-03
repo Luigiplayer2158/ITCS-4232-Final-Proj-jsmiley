@@ -84,7 +84,7 @@ func _physics_process(delta):
 			else:
 				anim.play("inair")
 		
-		velocity = move_and_slide_with_snap(velocity, snap, Vector3.UP, true)
+		velocity = move_and_slide_with_snap(velocity, snap, Vector3.UP)
 		
 		if Vector2(velocity.x, velocity.z).length() > 0.2:
 			last.z = velocity.z
