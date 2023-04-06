@@ -20,4 +20,11 @@ spinSpeed = 0.02
 [node name="Cube005" parent="Level1" index="5"]
 script = ExtResource( 4 )
 
+[node name="Cube008" parent="Level1" index="8"]
+script = ExtResource( 3 )
+
+[node name="Cube009" parent="Level1" index="9"]
+script = ExtResource( 3 )
+spinSpeed = -0.05
+
 [editable path="Level1"]
