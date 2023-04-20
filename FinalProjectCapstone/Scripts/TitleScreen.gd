@@ -4,7 +4,7 @@ extends Control
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://Levels/test_level1.tscn");
+	get_tree().change_scene("res://Levels/Hub_1.tscn");
 
 
 func _on_QuitButton_pressed():
