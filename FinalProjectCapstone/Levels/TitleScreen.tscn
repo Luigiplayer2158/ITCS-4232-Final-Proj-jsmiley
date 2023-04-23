@@ -1,25 +1,68 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://Levels/LevelModels/TitleScreen.glb" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Player/titlescreen_charidle.gd" type="Script" id=3]
+[ext_resource path="res://Objects/Player/funnyguy.glb" type="PackedScene" id=4]
 
-[node name="TitleScreen" type="Control" groups=["Persist"]]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_energy = 0.39
+auto_exposure_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="TitleScreen" parent="Spatial" instance=ExtResource( 2 )]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Spatial"]
+anchor_right = 1.25
+anchor_bottom = 1.2
+margin_right = -480.0
+margin_bottom = -216.0
+
+[node name="Viewport" type="Viewport" parent="Spatial/ViewportContainer"]
+size = Vector2( 1920, 1080 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="Spatial/ViewportContainer/Viewport"]
+transform = Transform( -0.064689, 0, -0.997905, 0, 1, 0, 0.997905, 0, -0.064689, -1.1883, 0.606503, -0.0936146 )
+fov = 45.392
+
+[node name="funnyguy" parent="Spatial" instance=ExtResource( 4 )]
+transform = Transform( -0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, -0.141421, 0.241316, -5.96046e-08, 0.330291 )
+script = ExtResource( 3 )
+
+[node name="SpotLight" type="SpotLight" parent="Spatial"]
+transform = Transform( 0.58236, 0.613831, -0.532981, 0.67514, -1.21247e-08, 0.73769, 0.452817, -0.789438, -0.414421, -1.32324, 2.28695, -0.874936 )
+light_energy = 0.25
+spot_angle = 19.5595
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Spatial"]
+environment = SubResource( 1 )
+
+[node name="TitleScreen" type="Control" parent="." groups=["Persist"]]
+anchor_right = 1.25
+anchor_bottom = 1.2
+margin_right = -480.0
+margin_bottom = -216.0
 script = ExtResource( 1 )
 
-[node name="StartButton" type="Button" parent="."]
-margin_left = 386.0
-margin_top = 239.0
-margin_right = 666.0
-margin_bottom = 327.0
+[node name="StartButton" type="Button" parent="TitleScreen"]
+margin_left = 180.0
+margin_top = 328.0
+margin_right = 460.0
+margin_bottom = 416.0
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="."]
-margin_left = 387.0
-margin_top = 365.0
-margin_right = 671.0
-margin_bottom = 454.0
+[node name="QuitButton" type="Button" parent="TitleScreen"]
+margin_left = 181.0
+margin_top = 454.0
+margin_right = 465.0
+margin_bottom = 543.0
 text = "Quit"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="TitleScreen/StartButton" to="TitleScreen" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="TitleScreen/QuitButton" to="TitleScreen" method="_on_QuitButton_pressed"]
