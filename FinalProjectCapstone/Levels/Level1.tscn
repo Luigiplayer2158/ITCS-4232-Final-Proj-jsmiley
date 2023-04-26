@@ -1,30 +1,166 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Levels/LevelModels/Level1.glb" type="PackedScene" id=1]
+[ext_resource path="res://Objects/LevelBlocks/longPlat.glb" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/RotateThis.gd" type="Script" id=3]
 [ext_resource path="res://Levels/RotateThisY.gd" type="Script" id=4]
+[ext_resource path="res://Objects/LevelBlocks/Starset.png" type="Texture" id=5]
+[ext_resource path="res://Levels/LevelModels/Material_003.material" type="Material" id=6]
+[ext_resource path="res://Levels/LevelModels/Material_005.material" type="Material" id=7]
+[ext_resource path="res://Objects/LevelBlocks/smallPlat.glb" type="PackedScene" id=8]
+[ext_resource path="res://Levels/LevelModels/Wood.material" type="Material" id=9]
+
+[sub_resource type="PanoramaSky" id=7]
+radiance_size = 1
+panorama = ExtResource( 5 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 7 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_sky_contribution = 0.36
+fog_color = Color( 0.156863, 0.298039, 0.443137, 1 )
+fog_sun_color = Color( 1, 1, 1, 1 )
+fog_depth_begin = 5.0
+
+[sub_resource type="ArrayMesh" id=3]
+resource_name = "Level1_Cube003"
+surfaces/0 = {
+"aabb": AABB( -1, -1, -6.87909, 2.00001, 2.00001, 7.87909 ),
+"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 220, 192, 127, 127, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 220, 192, 0, 127, 129, 63, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 220, 192, 127, 0, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 220, 192, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 220, 192, 127, 127, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 220, 192, 127, 0, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 127, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 128, 63, 127, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 220, 192, 129, 0, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 220, 192, 127, 127, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 220, 192, 0, 127, 129, 63, 0, 59, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 220, 192, 129, 0, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 220, 192, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 220, 192, 127, 127, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 129, 0, 0, 127, 0, 57, 0, 60, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 127, 0, 57, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 128, 63, 0, 127, 129, 63, 0, 59, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 129, 0, 0, 127, 0, 54, 0, 60, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 129, 127, 63, 0, 48, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 127, 0, 54, 0, 0 ),
+"array_index_data": PoolByteArray( 1, 0, 20, 0, 14, 0, 1, 0, 7, 0, 20, 0, 10, 0, 19, 0, 6, 0, 10, 0, 23, 0, 19, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 16, 0, 9, 0, 3, 0, 16, 0, 22, 0, 9, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 17, 0, 0, 0, 13, 0, 17, 0, 4, 0, 0, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 6 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ConcavePolygonShape" id=4]
+data = PoolVector3Array( 1, 1, -6.8791, -1, 1, 1, -1, 1, -6.8791, 1, 1, -6.8791, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -6.8791, -1, 1, 1, -1, -1, 1, -1, -1, -6.8791, -1, 1, -6.8791, -1, -1, -6.8791, 1, -1, 1, 1, -1, -6.8791, -1, -1, -6.8791, -1, -1, 1, 1, -1, 1, 1, -1, -6.8791, 1, 1, 1, 1, 1, -6.8791, 1, -1, -6.8791, 1, -1, 1, 1, 1, 1, -1, -1, -6.8791, 1, 1, -6.8791, -1, 1, -6.8791, -1, -1, -6.8791, 1, -1, -6.8791, 1, 1, -6.8791 )
+
+[sub_resource type="ArrayMesh" id=5]
+resource_name = "Level1_Cube005"
+surfaces/0 = {
+"aabb": AABB( -1, -1, -3.93954, 2.00001, 2.00001, 7.87909 ),
+"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 192, 127, 127, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 192, 0, 127, 129, 63, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 192, 127, 0, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 192, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 192, 127, 127, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 192, 127, 0, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 64, 0, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 64, 0, 127, 129, 63, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 64, 127, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 64, 0, 129, 127, 63, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 64, 0, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 64, 127, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 192, 129, 0, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 192, 127, 127, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 192, 0, 127, 129, 63, 0, 59, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 192, 129, 0, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 192, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 192, 127, 127, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 64, 129, 0, 0, 127, 0, 57, 0, 60, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 64, 0, 0, 0, 127, 0, 57, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 64, 0, 127, 129, 63, 0, 59, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 64, 129, 0, 0, 127, 0, 54, 0, 60, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 64, 0, 129, 127, 63, 0, 48, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 64, 0, 0, 0, 127, 0, 54, 0, 0 ),
+"array_index_data": PoolByteArray( 1, 0, 20, 0, 14, 0, 1, 0, 7, 0, 20, 0, 10, 0, 19, 0, 6, 0, 10, 0, 23, 0, 19, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 16, 0, 9, 0, 3, 0, 16, 0, 22, 0, 9, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 17, 0, 0, 0, 13, 0, 17, 0, 4, 0, 0, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"material": ExtResource( 7 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="ConcavePolygonShape" id=6]
+data = PoolVector3Array( 1, 1, -3.9395, -1, 1, 3.9395, -1, 1, -3.9395, 1, 1, -3.9395, 1, 1, 3.9395, -1, 1, 3.9395, 1, -1, 3.9395, -1, 1, 3.9395, 1, 1, 3.9395, 1, -1, 3.9395, -1, -1, 3.9395, -1, 1, 3.9395, -1, -1, 3.9395, -1, 1, -3.9395, -1, 1, 3.9395, -1, -1, 3.9395, -1, -1, -3.9395, -1, 1, -3.9395, -1, -1, -3.9395, 1, -1, 3.9395, 1, -1, -3.9395, -1, -1, -3.9395, -1, -1, 3.9395, 1, -1, 3.9395, 1, -1, -3.9395, 1, 1, 3.9395, 1, 1, -3.9395, 1, -1, -3.9395, 1, -1, 3.9395, 1, 1, 3.9395, -1, -1, -3.9395, 1, 1, -3.9395, -1, 1, -3.9395, -1, -1, -3.9395, 1, -1, -3.9395, 1, 1, -3.9395 )
 
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-[node name="Level1" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
 
-[node name="Cube002" parent="Level1" index="1"]
+[node name="Cube003" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.14874e-06, -1.02068, 63.2671 )
+mesh = SubResource( 3 )
+skeleton = NodePath("")
+material/0 = ExtResource( 9 )
 script = ExtResource( 3 )
 spinSpeed = 0.02
 
-[node name="Cube005" parent="Level1" index="2"]
+[node name="StaticBody" type="StaticBody" parent="Cube003"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube003/StaticBody"]
+shape = SubResource( 4 )
+
+[node name="Cube006" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.53003e-06, -1.02068, 75.779 )
+mesh = SubResource( 5 )
+skeleton = NodePath("")
+material/0 = ExtResource( 9 )
 script = ExtResource( 4 )
 
-[node name="Cube008" parent="Level1" index="3"]
-script = ExtResource( 3 )
+[node name="StaticBody" type="StaticBody" parent="Cube006"]
 
-[node name="Cube009" parent="Level1" index="4"]
-script = ExtResource( 3 )
-spinSpeed = -0.05
+[node name="CollisionShape" type="CollisionShape" parent="Cube006/StaticBody"]
+shape = SubResource( 6 )
 
-[editable path="Level1"]
+[node name="Cube007" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.53002e-06, -1.02068, 85.2961 )
+mesh = SubResource( 5 )
+skeleton = NodePath("")
+material/0 = ExtResource( 9 )
+script = ExtResource( 4 )
+spinSpeed = -0.01
+
+[node name="StaticBody" type="StaticBody" parent="Cube007"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube007/StaticBody"]
+shape = SubResource( 6 )
+
+[node name="smallPlat" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 91.3037 )
+
+[node name="smallPlat2" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 59.9338 )
+
+[node name="smallPlat3" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 38.4518 )
+
+[node name="smallPlat4" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 35.3375 )
+
+[node name="smallPlat5" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 22.4623 )
+
+[node name="smallPlat6" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 9.00477 )
+
+[node name="smallPlat7" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 4.66217 )
+
+[node name="smallPlat8" parent="." instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, -0.0354457 )
+
+[node name="longPlat" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.8746 )
+script = ExtResource( 3 )
+spinSpeed = 0.01
+
+[node name="Cube005" parent="longPlat" index="0"]
+material/0 = ExtResource( 9 )
+
+[node name="longPlat2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.2719 )
+script = ExtResource( 4 )
+
+[node name="Cube005" parent="longPlat2" index="0"]
+material/0 = ExtResource( 9 )
+
+[node name="longPlat3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44.6793 )
+script = ExtResource( 3 )
+spinSpeed = 0.01
+
+[node name="Cube005" parent="longPlat3" index="0"]
+material/0 = ExtResource( 9 )
+
+[node name="longPlat4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 53.6725 )
+script = ExtResource( 3 )
+spinSpeed = -0.01
+
+[node name="Cube005" parent="longPlat4" index="0"]
+material/0 = ExtResource( 9 )
+
+[editable path="longPlat"]
+[editable path="longPlat2"]
+[editable path="longPlat3"]
+[editable path="longPlat4"]

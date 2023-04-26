@@ -1,4 +1,4 @@
-extends MeshInstance
+extends Spatial
 
 
 # Declare member variables here. Examples:
