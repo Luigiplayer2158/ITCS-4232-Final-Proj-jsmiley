@@ -160,6 +160,10 @@ spinSpeed = -0.01
 [node name="Cube005" parent="longPlat4" index="0"]
 material/0 = ExtResource( 9 )
 
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.922777, -0.00236276, 0.385327, -0.343751, 0.446809, 0.825952, -0.174119, -0.894626, 0.411493, 0, 0, 0 )
+shadow_enabled = true
+
 [editable path="longPlat"]
 [editable path="longPlat2"]
 [editable path="longPlat3"]
