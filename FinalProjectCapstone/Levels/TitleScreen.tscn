@@ -43,6 +43,10 @@ spot_angle = 19.5595
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Spatial"]
 environment = SubResource( 1 )
 
+[node name="DirectionalLight" type="DirectionalLight" parent="Spatial"]
+transform = Transform( 0.886263, 0.367049, -0.282513, 0.306642, -0.00782436, 0.951793, 0.347144, -0.930169, -0.119487, 0.0836829, 0.531252, 0.0121921 )
+light_energy = 0.05
+
 [node name="TitleScreen" type="Control" parent="." groups=["Persist"]]
 anchor_right = 1.25
 anchor_bottom = 1.2
