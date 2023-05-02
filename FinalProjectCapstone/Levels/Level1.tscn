@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Objects/LevelBlocks/longPlat.glb" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Levels/LevelModels/Wood.material" type="Material" id=9]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Helper/DeathPlane.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/LevelBlocks/Checkpoint.tscn" type="PackedScene" id=12]
 
 [sub_resource type="PanoramaSky" id=7]
 radiance_size = 1
@@ -128,6 +129,12 @@ material/0 = ExtResource( 9 )
 transform = Transform( 0.922777, -0.00236276, 0.385327, -0.343751, 0.446809, 0.825952, -0.174119, -0.894626, 0.411493, 0, 0, 0 )
 shadow_enabled = true
 
+[node name="Checkpoint" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52817, -0.197189, 93.9907 )
+
+[node name="checkpoint" parent="Checkpoint" index="0"]
+checkpointCoords = Vector3( 0, 0, 93 )
+
 [node name="DeathPlane" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.73771, 0, -6.29512, 66.5757 )
 
@@ -145,5 +152,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0136557, 0.13186, 65.9173 )
 [editable path="longPlat"]
 [editable path="longPlat3"]
 [editable path="longPlat4"]
+[editable path="Checkpoint"]
+[editable path="Checkpoint/checkpoint"]
 [editable path="DeathPlane"]
 [editable path="HUD"]

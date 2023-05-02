@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/LevelBlocks/checkpoint.gd" type="Script" id=1]
+[ext_resource path="res://Objects/LevelBlocks/spikes.material" type="Material" id=2]
+[ext_resource path="res://Objects/LevelBlocks/checkpoint.glb" type="PackedScene" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.205632, 0.202733, 0.208197 )
+
+[node name="Checkpoint" type="Spatial"]
+
+[node name="checkpoint" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+
+[node name="pole" parent="checkpoint" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="head" parent="checkpoint" index="1"]
+material/0 = SubResource( 1 )
+
+[node name="Area" type="Area" parent="checkpoint"]
+transform = Transform( 2.04413, 0, 0, 0, 5.63528, 0, 0, 0, 2.07143, 0, 0.746888, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="checkpoint/Area"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="checkpoint/Area" to="checkpoint" method="_on_Area_body_entered"]
+
+[editable path="checkpoint"]
