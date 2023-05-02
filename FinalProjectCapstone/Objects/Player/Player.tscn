@@ -23,7 +23,7 @@ spring_length = -2.0
 script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="MovingPlayer"]
-transform = Transform( 0.253436, -5.32907e-15, -4.73656e-16, 0, 0, -0.242256, 0, 0.253436, -1.49012e-08, -6.15812e-15, 0.654715, 2.98023e-08 )
+transform = Transform( 0.253, 0, 0, 0, -1.1059e-08, -0.253, 0, 0.253, -1.1059e-08, -6.15812e-15, 0.654715, 2.98023e-08 )
 shape = SubResource( 1 )
 
 [node name="Spatial" type="Spatial" parent="MovingPlayer"]
@@ -36,5 +36,7 @@ enabled = true
 
 [node name="funnyguy" parent="MovingPlayer" instance=ExtResource( 4 )]
 transform = Transform( 0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 0, 0, 0 )
+
+[node name="Tween" type="Tween" parent="MovingPlayer/funnyguy/AnimationPlayer" index="0"]
 
 [editable path="MovingPlayer/funnyguy"]

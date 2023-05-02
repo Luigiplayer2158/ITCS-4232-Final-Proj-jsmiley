@@ -10,10 +10,14 @@ export var gravity = 50
 
 onready var anim = $funnyguy/AnimationPlayer
 
+onready var hurtbox = $CollisionShape
+
 var velocity = Vector3.ZERO
 
 var snap = Vector3.DOWN
 var last = Vector3.ZERO
+
+export var speedBoost = 1
 
 #https://youtu.be/UpF7wm0186Q This video helped me get started
 
@@ -26,6 +30,8 @@ func _ready():
 	anim.get_animation("jumping").set_loop(false)
 	anim.get_animation("inair").set_loop(true)
 	anim.get_animation("land").set_loop(false)
+	anim.get_animation("roll").set_loop(false)
+	anim.get_animation("punch").set_loop(false)
 
 func _physics_process(delta):
 	
@@ -37,15 +43,25 @@ func _physics_process(delta):
 		
 		var jumping = is_on_floor() and Input.is_action_just_pressed("jump")
 		
+		var action = Input.is_action_just_pressed("action")
+		
 		var look_direction = Vector2(last.z, last.x)
 		
 		direction.x = Input.get_action_strength("move_left") - Input.get_action_strength("move_right")
 		direction.z = Input.get_action_strength("move_forward") - Input.get_action_strength("move_back")
 		
 		direction = direction.rotated(Vector3.UP, springarm.rotation.y).normalized()
+		if anim.current_animation == "roll":
+			speedBoost = 2
+			jump = 16
+			hurtbox.scale = Vector3(0.253,0.1265,0.253)
+		else:
+			speedBoost = 1
+			jump = 12
+			hurtbox.scale = Vector3(0.253,0.253,0.253)
 
-		velocity.x = (direction.x * speed)/2
-		velocity.z = (direction.z * speed)/2
+		velocity.x = (direction.x * speed * speedBoost)/2
+		velocity.z = (direction.z * speed * speedBoost)/2
 		velocity.y -= gravity * delta
 		
 #		if velocity.x >= 14 or velocity.x <= -14:
@@ -71,20 +87,29 @@ func _physics_process(delta):
 			snap = Vector3.DOWN
 			
 		if snap == Vector3.DOWN:
-			if anim.current_animation == "land":
+			if anim.current_animation == "land" or anim.current_animation == "punch":
 				pass
 			else:
 				if velocity.x == 0 and velocity.z == 0:
 					anim.play("idle")
 				else:
-					anim.play("walking")
+					if anim.current_animation == "roll":
+						pass
+					else:
+						anim.play("walking")
 		elif snap == Vector3.ZERO:
-			if anim.current_animation == "jumping":
+			if anim.current_animation == "jumping" or anim.current_animation == "punch":
 				pass
 			else:
 				anim.play("inair")
 		
 		velocity = move_and_slide_with_snap(velocity, snap, Vector3.UP)
+		
+		if action:
+			if Vector2(velocity.x, velocity.z).length() > 0.2:
+				anim.play("roll")
+			else:
+				anim.play("punch")
 		
 		if Vector2(velocity.x, velocity.z).length() > 0.2:
 			last.z = velocity.z
@@ -92,6 +117,7 @@ func _physics_process(delta):
 			look_direction = Vector2(last.z, last.x)
 			model.rotation.y = direction.rotated(Vector3.UP, springarm.rotation.y).normalized().y + 180
 			model.rotation.y = look_direction.angle()
+			
 			
 		
 

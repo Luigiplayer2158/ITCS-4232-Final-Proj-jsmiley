@@ -8,5 +8,5 @@ var camerarotation_h = 0
 	
 # https://www.youtube.com/watch?v=Bch-OagnX1E&t=42s
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	rotation_degrees.y = camerarotation_h +180
