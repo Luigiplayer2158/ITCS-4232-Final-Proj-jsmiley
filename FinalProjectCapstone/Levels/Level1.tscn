@@ -1,12 +1,12 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Objects/LevelBlocks/longPlat.glb" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/RotateThis.gd" type="Script" id=3]
-[ext_resource path="res://Levels/RotateThisY.gd" type="Script" id=4]
+[ext_resource path="res://Objects/LevelBlocks/LongPlatformObject.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/LevelBlocks/Starset.png" type="Texture" id=5]
 [ext_resource path="res://Levels/LevelModels/Material_003.material" type="Material" id=6]
-[ext_resource path="res://Levels/LevelModels/Material_005.material" type="Material" id=7]
+[ext_resource path="res://Objects/LevelBlocks/spikeBlock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/LevelBlocks/smallPlat.glb" type="PackedScene" id=8]
 [ext_resource path="res://Levels/LevelModels/Wood.material" type="Material" id=9]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=10]
@@ -43,24 +43,6 @@ surfaces/0 = {
 [sub_resource type="ConcavePolygonShape" id=4]
 data = PoolVector3Array( 1, 1, -6.8791, -1, 1, 1, -1, 1, -6.8791, 1, 1, -6.8791, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -6.8791, -1, 1, 1, -1, -1, 1, -1, -1, -6.8791, -1, 1, -6.8791, -1, -1, -6.8791, 1, -1, 1, 1, -1, -6.8791, -1, -1, -6.8791, -1, -1, 1, 1, -1, 1, 1, -1, -6.8791, 1, 1, 1, 1, 1, -6.8791, 1, -1, -6.8791, 1, -1, 1, 1, 1, 1, -1, -1, -6.8791, 1, 1, -6.8791, -1, 1, -6.8791, -1, -1, -6.8791, 1, -1, -6.8791, 1, 1, -6.8791 )
 
-[sub_resource type="ArrayMesh" id=5]
-resource_name = "Level1_Cube005"
-surfaces/0 = {
-"aabb": AABB( -1, -1, -3.93954, 2.00001, 2.00001, 7.87909 ),
-"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 192, 127, 127, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 192, 0, 127, 129, 63, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 192, 127, 0, 0, 127, 0, 57, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 192, 0, 129, 127, 63, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 192, 127, 127, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 192, 127, 0, 0, 127, 0, 54, 0, 56, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 64, 0, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 64, 0, 127, 129, 63, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 63, 128, 33, 124, 64, 127, 0, 0, 127, 0, 57, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 64, 0, 129, 127, 63, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 64, 0, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 63, 0, 0, 128, 191, 128, 33, 124, 64, 127, 0, 0, 127, 0, 54, 0, 52, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 192, 129, 0, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 192, 127, 127, 0, 127, 0, 57, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 192, 0, 127, 129, 63, 0, 59, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 192, 129, 0, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 192, 0, 129, 127, 63, 0, 48, 0, 56, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 192, 127, 127, 0, 127, 0, 54, 0, 58, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 64, 129, 0, 0, 127, 0, 57, 0, 60, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 64, 0, 0, 0, 127, 0, 57, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 128, 33, 124, 64, 0, 127, 129, 63, 0, 59, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 64, 129, 0, 0, 127, 0, 54, 0, 60, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 64, 0, 129, 127, 63, 0, 48, 0, 52, 0, 0, 128, 191, 0, 0, 128, 191, 128, 33, 124, 64, 0, 0, 0, 127, 0, 54, 0, 0 ),
-"array_index_data": PoolByteArray( 1, 0, 20, 0, 14, 0, 1, 0, 7, 0, 20, 0, 10, 0, 19, 0, 6, 0, 10, 0, 23, 0, 19, 0, 21, 0, 12, 0, 18, 0, 21, 0, 15, 0, 12, 0, 16, 0, 9, 0, 3, 0, 16, 0, 22, 0, 9, 0, 5, 0, 8, 0, 2, 0, 5, 0, 11, 0, 8, 0, 17, 0, 0, 0, 13, 0, 17, 0, 4, 0, 0, 0 ),
-"blend_shape_data": [  ],
-"format": 2194711,
-"index_count": 36,
-"material": ExtResource( 7 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 24
-}
-
-[sub_resource type="ConcavePolygonShape" id=6]
-data = PoolVector3Array( 1, 1, -3.9395, -1, 1, 3.9395, -1, 1, -3.9395, 1, 1, -3.9395, 1, 1, 3.9395, -1, 1, 3.9395, 1, -1, 3.9395, -1, 1, 3.9395, 1, 1, 3.9395, 1, -1, 3.9395, -1, -1, 3.9395, -1, 1, 3.9395, -1, -1, 3.9395, -1, 1, -3.9395, -1, 1, 3.9395, -1, -1, 3.9395, -1, -1, -3.9395, -1, 1, -3.9395, -1, -1, -3.9395, 1, -1, 3.9395, 1, -1, -3.9395, -1, -1, -3.9395, -1, -1, 3.9395, 1, -1, 3.9395, 1, -1, -3.9395, 1, 1, 3.9395, 1, 1, -3.9395, 1, -1, -3.9395, 1, -1, 3.9395, 1, 1, 3.9395, -1, -1, -3.9395, 1, 1, -3.9395, -1, 1, -3.9395, -1, -1, -3.9395, 1, -1, -3.9395, 1, 1, -3.9395 )
-
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
@@ -82,33 +64,8 @@ spinSpeed = 0.02
 [node name="CollisionShape" type="CollisionShape" parent="Cube003/StaticBody"]
 shape = SubResource( 4 )
 
-[node name="Cube006" type="MeshInstance" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.53003e-06, -1.02068, 75.779 )
-mesh = SubResource( 5 )
-skeleton = NodePath("")
-material/0 = ExtResource( 9 )
-script = ExtResource( 4 )
-
-[node name="StaticBody" type="StaticBody" parent="Cube006"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Cube006/StaticBody"]
-shape = SubResource( 6 )
-
-[node name="Cube007" type="MeshInstance" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.53002e-06, -1.02068, 85.2961 )
-mesh = SubResource( 5 )
-skeleton = NodePath("")
-material/0 = ExtResource( 9 )
-script = ExtResource( 4 )
-spinSpeed = -0.01
-
-[node name="StaticBody" type="StaticBody" parent="Cube007"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Cube007/StaticBody"]
-shape = SubResource( 6 )
-
 [node name="smallPlat" parent="." instance=ExtResource( 8 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 91.3037 )
+transform = Transform( -3, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -3, -4.54747e-12, 0, 93.9367 )
 
 [node name="smallPlat2" parent="." instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 59.9338 )
@@ -129,7 +86,19 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5474
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 4.66217 )
 
 [node name="smallPlat8" parent="." instance=ExtResource( 8 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, -0.0354457 )
+transform = Transform( -3.80697, 0, -3.32816e-07, 0, 1, 0, 3.32631e-07, 0, -3.80485, -4.54747e-12, 0, -0.0354457 )
+
+[node name="LongPlatformObject" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1824, 28.9264 )
+
+[node name="LongPlatformObject2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1824, 75.8424 )
+
+[node name="LongPlatformObject3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101547, -1.15677, 85.1212 )
+
+[node name="longPlat" parent="LongPlatformObject3" index="0"]
+spinSpeed = -0.01
 
 [node name="longPlat" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.8746 )
@@ -137,13 +106,6 @@ script = ExtResource( 3 )
 spinSpeed = 0.01
 
 [node name="Cube005" parent="longPlat" index="0"]
-material/0 = ExtResource( 9 )
-
-[node name="longPlat2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.2719 )
-script = ExtResource( 4 )
-
-[node name="Cube005" parent="longPlat2" index="0"]
 material/0 = ExtResource( 9 )
 
 [node name="longPlat3" parent="." instance=ExtResource( 1 )]
@@ -169,14 +131,18 @@ shadow_enabled = true
 [node name="DeathPlane" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.73771, 0, -6.29512, 66.5757 )
 
+[node name="SpikeyBlock" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0136557, 0.13186, 65.9173 )
+
 [node name="HUD" parent="." instance=ExtResource( 10 )]
 
 [connection signal="body_entered" from="DeathPlane/Area" to="HUD" method="_on_Area_body_entered"]
 
 [editable path="Player"]
 [editable path="Player/MovingPlayer/funnyguy"]
+[editable path="LongPlatformObject"]
+[editable path="LongPlatformObject3"]
 [editable path="longPlat"]
-[editable path="longPlat2"]
 [editable path="longPlat3"]
 [editable path="longPlat4"]
 [editable path="DeathPlane"]

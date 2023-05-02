@@ -14,3 +14,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	rotation.y += spinSpeed
+
+
+
+func _on_Area_body_entered(body):
+	print("it has occured");
+
+
+#func _on_Area_body_exited(body):
+	#print("it has occured");
+

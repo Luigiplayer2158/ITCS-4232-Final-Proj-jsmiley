@@ -24,12 +24,15 @@ func updateBoxes(boxCount):
 
 func _on_Area_body_entered(body):
 	if body is KinematicBody:
-		print("it has occured");
-		deathCount = deathCount + 1
-		$deaths.text = "x " + str(deathCount)
-		get_tree().paused = true
-		anim.play("fadeOut")
-		player.global_transform.origin = Vector3(0.00,5.00,0.00)
-		get_tree().paused = false
-		anim.play("fadeIn")
+		playerDeath()
 		
+
+func playerDeath():
+	print("it has occured");
+	deathCount = deathCount + 1
+	$deaths.text = "x " + str(deathCount)
+	get_tree().paused = true
+	anim.play("fadeOut")
+	player.global_transform.origin = Vector3(0.00,5.00,0.00)
+	get_tree().paused = false
+	anim.play("fadeIn")
