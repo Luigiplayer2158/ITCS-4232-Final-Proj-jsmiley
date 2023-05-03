@@ -6,12 +6,12 @@
 [ext_resource path="res://Objects/LevelBlocks/LongPlatformObject.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/LevelBlocks/Starset.png" type="Texture" id=5]
 [ext_resource path="res://Levels/LevelModels/Material_003.material" type="Material" id=6]
-[ext_resource path="res://Objects/LevelBlocks/spikeBlock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/LevelBlocks/smallPlat.glb" type="PackedScene" id=8]
 [ext_resource path="res://Levels/LevelModels/Wood.material" type="Material" id=9]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Helper/DeathPlane.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/LevelBlocks/Checkpoint.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Helper/level_change_object.tscn" type="PackedScene" id=13]
 
 [sub_resource type="PanoramaSky" id=7]
 radiance_size = 1
@@ -58,6 +58,10 @@ tracks/0/keys = PoolRealArray( 0, 1, -1.76332, 1.80509, 97.8798, 0, 1, 0, 7.5498
 
 [node name="Spatial" type="Spatial"]
 
+[node name="Spatial" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.0776, 140.73 )
+level_name = "Hub_1"
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 
@@ -79,6 +83,12 @@ shape = SubResource( 4 )
 
 [node name="smallPlat" parent="." instance=ExtResource( 8 )]
 transform = Transform( -3, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -3, -4.54747e-12, 0, 93.9367 )
+
+[node name="smallPlat12" parent="." instance=ExtResource( 8 )]
+transform = Transform( -3, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -3, -4.54747e-12, 8.30151, 133.137 )
+
+[node name="smallPlat13" parent="." instance=ExtResource( 8 )]
+transform = Transform( -3, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -3, -4.54747e-12, 8.30151, 139.091 )
 
 [node name="smallPlat2" parent="." instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.54747e-12, 0, 59.9338 )
@@ -112,6 +122,38 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101547, -1.15677, 85.1212 )
 
 [node name="longPlat" parent="LongPlatformObject3" index="0"]
 spinSpeed = -0.01
+
+[node name="LongPlatformObject4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88116, 6.99109, 103.984 )
+script = ExtResource( 3 )
+spinSpeed = 0.02
+
+[node name="longPlat" parent="LongPlatformObject4" index="0"]
+script = null
+
+[node name="LongPlatformObject5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6729, 6.99109, 109.428 )
+script = ExtResource( 3 )
+spinSpeed = 0.02
+
+[node name="longPlat" parent="LongPlatformObject5" index="0"]
+script = null
+
+[node name="LongPlatformObject6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88116, 6.99109, 117.136 )
+script = ExtResource( 3 )
+spinSpeed = 0.02
+
+[node name="longPlat" parent="LongPlatformObject6" index="0"]
+script = null
+
+[node name="LongPlatformObject7" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6729, 6.99109, 124.865 )
+script = ExtResource( 3 )
+spinSpeed = 0.02
+
+[node name="longPlat" parent="LongPlatformObject7" index="0"]
+script = null
 
 [node name="longPlat" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.8746 )
@@ -150,9 +192,6 @@ checkpointCoords = Vector3( 0, 0, 93 )
 [node name="DeathPlane" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.73771, 0, -6.29512, 66.5757 )
 
-[node name="SpikeyBlock" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0136557, 0.13186, 65.9173 )
-
 [node name="HUD" parent="." instance=ExtResource( 10 )]
 pause_mode = 2
 
@@ -179,6 +218,10 @@ anims/platMoveVertical = SubResource( 8 )
 [editable path="Player/MovingPlayer/funnyguy"]
 [editable path="LongPlatformObject"]
 [editable path="LongPlatformObject3"]
+[editable path="LongPlatformObject4"]
+[editable path="LongPlatformObject5"]
+[editable path="LongPlatformObject6"]
+[editable path="LongPlatformObject7"]
 [editable path="longPlat"]
 [editable path="longPlat3"]
 [editable path="longPlat4"]
