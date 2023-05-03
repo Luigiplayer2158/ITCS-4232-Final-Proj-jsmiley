@@ -16,6 +16,7 @@ var velocity = Vector3.ZERO
 
 var snap = Vector3.DOWN
 var last = Vector3.ZERO
+var doubleJump = true
 
 export var speedBoost = 1
 
@@ -42,6 +43,7 @@ func _physics_process(delta):
 		var landed = is_on_floor() and snap == Vector3.ZERO
 		
 		var jumping = is_on_floor() and Input.is_action_just_pressed("jump")
+		var secondJump = not is_on_floor() and Input.is_action_just_pressed("jump")
 		
 		var action = Input.is_action_just_pressed("action")
 		
@@ -82,8 +84,16 @@ func _physics_process(delta):
 			velocity.z = last.z
 			snap = Vector3.ZERO
 			anim.play("jumping")
-		elif landed:
+		elif secondJump:
+			if doubleJump == true:
+				velocity.y = jump
+				velocity.x = last.x
+				velocity.z = last.z
+				anim.play("jumping")
+				doubleJump = false
+		if landed:
 			anim.play("land")
+			doubleJump = true
 			snap = Vector3.DOWN
 			
 		if snap == Vector3.DOWN:
