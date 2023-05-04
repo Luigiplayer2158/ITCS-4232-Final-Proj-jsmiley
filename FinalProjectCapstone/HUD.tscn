@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://HUD/fadeOut.tres" type="Animation" id=2]
+[ext_resource path="res://HUD/LevelComplete.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fadeIn"
@@ -19,37 +20,30 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=2]
+resource_name = "LevelComplete"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 938, -579 ), Vector2( 938, 530 ) ]
+}
+
 [node name="HUD" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 1 )
-
-[node name="boxes" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -103.0
-margin_top = 1.0
-margin_right = -60.9999
-margin_bottom = 15.0
-rect_scale = Vector2( 4.94143, 4.98705 )
-text = "BOXES"
-align = 1
-uppercase = true
 
 [node name="deaths" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
 rect_scale = Vector2( 5, 5 )
 text = "X 0"
-uppercase = true
-
-[node name="timer" type="Label" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -199.0
-margin_right = -159.0
-margin_bottom = 14.0
-rect_scale = Vector2( 5, 5 )
-text = "timer"
 uppercase = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -68,7 +62,6 @@ anims/fadeIn = SubResource( 1 )
 anims/fadeOut = ExtResource( 2 )
 
 [node name="pauseMenu" type="Control" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -83,10 +76,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -58.0
-margin_top = -46.0
-margin_right = 58.0
-margin_bottom = 46.0
+margin_left = -287.0
+margin_top = -149.0
+margin_right = -171.0
+margin_bottom = -57.0
+rect_scale = Vector2( 5, 5 )
 
 [node name="Resume" type="Button" parent="pauseMenu/VBoxContainer"]
 margin_right = 116.0
@@ -112,7 +106,6 @@ margin_bottom = 92.0
 text = "Quit To Desktop"
 
 [node name="saveMenu" type="Control" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -125,9 +118,11 @@ margin_bottom = 20.0
 [node name="RichTextLabel" type="RichTextLabel" parent="saveMenu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -105.0
-margin_right = 104.0
-margin_bottom = 40.0
+margin_left = -493.0
+margin_top = -45.0
+margin_right = -284.0
+margin_bottom = -4.99997
+rect_scale = Vector2( 5, 5 )
 text = "Hey there! Do you want to save?"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="saveMenu"]
@@ -135,10 +130,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -38.0
-margin_top = 3.0
-margin_right = 40.0
-margin_bottom = 47.0
+margin_left = -184.0
+margin_top = 16.0
+margin_right = -106.0
+margin_bottom = 60.0
+rect_scale = Vector2( 5, 5 )
 
 [node name="Save" type="Button" parent="saveMenu/VBoxContainer"]
 margin_right = 78.0
@@ -151,9 +147,68 @@ margin_right = 78.0
 margin_bottom = 44.0
 text = "No Thanks"
 
+[node name="EndScreen" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -22.0
+margin_top = -1119.0
+margin_right = 23.0
+margin_bottom = -1081.0
+
+[node name="Sprite" type="Sprite" parent="EndScreen"]
+position = Vector2( 23, 21 )
+scale = Vector2( 1.03676, 1.03016 )
+texture = ExtResource( 3 )
+
+[node name="Continue" type="Button" parent="EndScreen"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -174.5
+margin_top = 199.0
+margin_right = -105.5
+margin_bottom = 219.0
+rect_scale = Vector2( 5, 5 )
+text = "Continue"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EndScreen"]
+anims/LevelComplete = SubResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndScreen"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -259.0
+margin_top = -245.0
+margin_right = -155.0
+margin_bottom = -166.0
+rect_scale = Vector2( 5, 5 )
+text = "Times Died:
+"
+
+[node name="deathCount" type="RichTextLabel" parent="EndScreen/RichTextLabel"]
+margin_left = 83.0
+margin_top = 0.399994
+margin_right = 206.0
+margin_bottom = 15.4
+text = "0"
+
+[node name="rankLabel" type="RichTextLabel" parent="EndScreen"]
+margin_left = -194.0
+margin_top = 3.0
+margin_right = -128.0
+margin_bottom = 20.0
+rect_scale = Vector2( 6, 6 )
+text = "Rank:"
+
 [connection signal="pressed" from="pauseMenu/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/QuitToHub" to="." method="_on_QuitToHub_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/QuitToDesktop" to="." method="_on_QuitToDesktop_pressed"]
 [connection signal="pressed" from="saveMenu/VBoxContainer/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="saveMenu/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="EndScreen/Continue" to="." method="_on_Continue_pressed"]

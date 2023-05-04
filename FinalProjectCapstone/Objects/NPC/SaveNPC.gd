@@ -6,11 +6,7 @@ extends Spatial
 # var b = "text"
 onready var player = $"../Player/MovingPlayer"
 
-onready var boxes = $"../HUD/boxes"
-
 onready var deaths = $"../HUD/deaths"
-
-onready var timer = $"../HUD/timer"
 
 onready var saveMenu = $"../HUD/saveMenu"
 
@@ -24,9 +20,7 @@ export var doneOnce = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	boxes.visible = false
 	deaths.visible = false
-	timer.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

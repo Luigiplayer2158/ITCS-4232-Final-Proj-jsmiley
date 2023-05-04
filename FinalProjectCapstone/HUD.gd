@@ -7,7 +7,7 @@ extends CanvasLayer
 
 #https://youtu.be/l3rcG3mWy-U menu assistance
 export var paused = false
-onready var deathCount = 0
+export var deathCount = 0
 
 onready var playerRespawnCoords = Vector3(0.00,5.00,0.00)
 
@@ -45,6 +45,7 @@ func pauseGame():
 	
 func updateBoxes(boxCount):
 	$boxes.text = "x " + str(boxCount)
+	$EndScreen/RichTextLabel/collectableCount.text = str(boxCount)
 	
 
 func _on_Area_body_entered(body):
@@ -56,6 +57,7 @@ func playerDeath():
 	print("it has occured");
 	deathCount = deathCount + 1
 	$deaths.text = "x " + str(deathCount)
+	$EndScreen/RichTextLabel/deathCount.text = str(deathCount)
 	get_tree().paused = true
 	anim.play("fadeOut")
 	player.global_transform.origin = playerRespawnCoords
@@ -91,3 +93,8 @@ func _on_Quit_pressed():
 	$saveMenu/RichTextLabel.text = "Hey there! Do you want to save?"
 	$saveMenu.visible = false
 	player.movementAllowed = true
+
+
+func _on_Continue_pressed():
+	get_tree().paused = false
+	get_tree().change_scene("res://Levels/Hub_1.tscn")

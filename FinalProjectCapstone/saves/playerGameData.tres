@@ -6,9 +6,13 @@
 script = ExtResource( 1 )
 rollEnable = false
 doubleJumpEnable = false
-level1 = {
-"collectables": 0,
-"deaths": 0,
-"rank": "F",
-"time": "0:00"
-}
+level1Rank = "F"
+level2Rank = "F"
+level3Rank = "F"
+level4Rank = "F"
+level5Rank = "F"
+level6Rank = "F"
+level7Rank = "F"
+level8Rank = "F"
+level9Rank = "F"
+level10Rank = "F"

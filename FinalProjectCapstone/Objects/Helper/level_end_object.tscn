@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/levelWarp.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Helper/level_end_object.gd" type="Script" id=1]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -20,9 +20,8 @@ material = SubResource( 5 )
 
 [sub_resource type="BoxShape" id=6]
 
-[node name="level_change" type="Spatial"]
+[node name="level_end" type="Spatial"]
 script = ExtResource( 1 )
-level_name = "test_level2"
 
 [node name="Area" type="Area" parent="."]
 
