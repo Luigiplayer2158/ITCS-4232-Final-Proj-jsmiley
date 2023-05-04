@@ -16,6 +16,8 @@ onready var hurtbox = $CollisionShape
 
 onready var doubleJumpEnable = RuntimeGameData.runTimeData.doubleJumpEnable
 
+onready var rollEnable = RuntimeGameData.runTimeData.rollEnable
+
 var velocity = Vector3.ZERO
 
 var snap = Vector3.DOWN
@@ -121,7 +123,7 @@ func _physics_process(delta):
 		velocity = move_and_slide_with_snap(velocity, snap, Vector3.UP)
 		
 		if action:
-			if Vector2(velocity.x, velocity.z).length() > 0.2:
+			if Vector2(velocity.x, velocity.z).length() > 0.2 && rollEnable:
 				anim.play("roll")
 			else:
 				anim.play("punch")

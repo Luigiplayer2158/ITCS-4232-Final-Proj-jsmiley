@@ -1,35 +1,14 @@
-[gd_resource type="GDScript" format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://gameData.gd" type="Script" id=1]
 
 [resource]
-script/source = "extends Resource
-
-#https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
-#https://www.youtube.com/watch?v=wSq1QJ-g91M
-#https://www.youtube.com/watch?v=TGdQ57qCCF0
-#https://kidscancode.org/godot_recipes/4.x/basics/file_io/#:~:text=Saving%20Resources&text=Godot%20saves%20all%20its%20data,ResourceSaver%20and%20ResourceLoader%20Godot%20classes.
-#help with saving and loading
-
-
-class_name gameData
-
-const save_path = \"./saves/playerGameData.tres\"
-
-export var rollEnable = false
-
-export var doubleJumpEnable = false
-
-export var level1 = {
-	\"deaths\": 0,
-	\"collectables\": 0,
-	\"time\": \"0:00\",
-	\"rank\": \"F\"	
+script = ExtResource( 1 )
+rollEnable = false
+doubleJumpEnable = false
+level1 = {
+"collectables": 0,
+"deaths": 0,
+"rank": "F",
+"time": "0:00"
 }
-
-static func save_game(passedIn):
-	ResourceSaver.save(save_path, passedIn)
-	
-static func load_game() -> Resource:
-	if ResourceLoader.exists(save_path):
-		return load(save_path)
-	return null
-"
