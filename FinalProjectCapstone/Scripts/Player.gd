@@ -87,12 +87,13 @@ func _physics_process(delta):
 			snap = Vector3.ZERO
 			anim.play("jumping")
 		elif secondJump:
-			if doubleJump == true:
-				velocity.y = jump
-				velocity.x = last.x
-				velocity.z = last.z
-				anim.play("jumping")
-				doubleJump = false
+			if RuntimeGameData.newRuntimeData.doubleJumpEnable == true:
+				if doubleJump == true:
+					velocity.y = jump
+					velocity.x = last.x
+					velocity.z = last.z
+					anim.play("jumping")
+					doubleJump = false
 		if landed:
 			anim.play("land")
 			doubleJump = true

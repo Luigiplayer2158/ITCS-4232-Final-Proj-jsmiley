@@ -18,6 +18,8 @@ onready var saveNode = $"../HUD/saveMenu/VBoxContainer/Save"
 
 onready var npcText = $"../HUD/saveMenu/RichTextLabel"
 
+onready var hud = $"../HUD"
+
 export var doneOnce = false
 
 # Called when the node enters the scene tree for the first time.
@@ -36,6 +38,7 @@ func _on_Area_body_entered(body):
 	if body is KinematicBody:
 		if doneOnce == false:
 			player.movementAllowed = false
+			hud.pauseAllowed = false
 			saveMenu.visible = true
 			saveNode.grab_focus()
 			$saveNPCguy/Area.monitoring = false
@@ -44,5 +47,7 @@ func _on_Area_body_entered(body):
 
 func _on_Area_body_exited(body):
 	if body is KinematicBody:
+		saveNode.release_focus()
+		hud.pauseAllowed = true
 		doneOnce = false
 		$saveNPCguy/Area.monitoring = true

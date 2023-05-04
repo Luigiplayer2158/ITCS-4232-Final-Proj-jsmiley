@@ -2,8 +2,10 @@ extends Resource
 
 #https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 #https://www.youtube.com/watch?v=wSq1QJ-g91M
+#https://www.youtube.com/watch?v=TGdQ57qCCF0
 #https://kidscancode.org/godot_recipes/4.x/basics/file_io/#:~:text=Saving%20Resources&text=Godot%20saves%20all%20its%20data,ResourceSaver%20and%20ResourceLoader%20Godot%20classes.
 #help with saving and loading
+
 
 class_name gameData
 

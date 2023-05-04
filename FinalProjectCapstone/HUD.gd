@@ -6,7 +6,7 @@ extends CanvasLayer
 # var b = "text"
 
 #https://youtu.be/l3rcG3mWy-U menu assistance
-var paused = false
+export var paused = false
 onready var deathCount = 0
 
 onready var playerRespawnCoords = Vector3(0.00,5.00,0.00)
@@ -16,6 +16,8 @@ onready var player = $"../Player/MovingPlayer"
 onready var anim = $ColorRect/AnimationPlayer
 
 onready var firstNode = $pauseMenu/VBoxContainer/Resume
+
+export var pauseAllowed = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,12 +30,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
-		pauseGame()
+		if pauseAllowed == true:
+			pauseGame()
 		
 func pauseGame():
 	if get_tree().paused == true:
 		get_tree().paused = false
 		$pauseMenu.visible = false
+		firstNode.release_focus()
 	else:
 		get_tree().paused = true
 		$pauseMenu.visible = true
@@ -66,14 +70,16 @@ func _on_Resume_pressed():
 	$pauseMenu.visible = false
 
 func _on_Restart_pressed():
-	get_tree().reload_current_scene()
 	get_tree().paused = false
+	get_tree().reload_current_scene()
 
 func _on_QuitToHub_pressed():
-	get_tree().change_scene("res://Levels/Hub_1.tscn")
 	get_tree().paused = false
+	get_tree().change_scene("res://Levels/Hub_1.tscn")
+	
 
 func _on_QuitToDesktop_pressed():
+	get_tree().paused = false
 	get_tree().quit()
 	
 
