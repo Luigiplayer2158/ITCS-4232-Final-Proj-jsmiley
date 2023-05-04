@@ -47,26 +47,38 @@ environment = SubResource( 1 )
 transform = Transform( 0.886263, 0.367049, -0.282513, 0.306642, -0.00782436, 0.951793, 0.347144, -0.930169, -0.119487, 0.0836829, 0.531252, 0.0121921 )
 light_energy = 0.05
 
-[node name="TitleScreen" type="Control" parent="." groups=["Persist"]]
+[node name="TitleScreen" type="Control" parent="."]
 anchor_right = 1.25
 anchor_bottom = 1.2
 margin_right = -480.0
 margin_bottom = -216.0
 script = ExtResource( 1 )
 
-[node name="StartButton" type="Button" parent="TitleScreen"]
-margin_left = 180.0
-margin_top = 328.0
-margin_right = 460.0
-margin_bottom = 416.0
-text = "Start"
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleScreen"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 303.0
+margin_top = -18.0
+margin_right = 562.0
+margin_bottom = 28.0
 
-[node name="QuitButton" type="Button" parent="TitleScreen"]
-margin_left = 181.0
-margin_top = 454.0
-margin_right = 465.0
-margin_bottom = 543.0
+[node name="ContinueGame" type="Button" parent="TitleScreen/VBoxContainer"]
+margin_right = 259.0
+margin_bottom = 20.0
+text = "Continue Game"
+
+[node name="NewGame" type="Button" parent="TitleScreen/VBoxContainer"]
+margin_top = 24.0
+margin_right = 259.0
+margin_bottom = 44.0
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="TitleScreen/VBoxContainer"]
+margin_top = 48.0
+margin_right = 259.0
+margin_bottom = 68.0
 text = "Quit"
 
-[connection signal="pressed" from="TitleScreen/StartButton" to="TitleScreen" method="_on_StartButton_pressed"]
-[connection signal="pressed" from="TitleScreen/QuitButton" to="TitleScreen" method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="TitleScreen/VBoxContainer/ContinueGame" to="TitleScreen" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="TitleScreen/VBoxContainer/NewGame" to="TitleScreen" method="_on_NewGame_pressed"]
+[connection signal="pressed" from="TitleScreen/VBoxContainer/QuitButton" to="TitleScreen" method="_on_QuitButton_pressed"]
