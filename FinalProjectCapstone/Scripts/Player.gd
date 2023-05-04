@@ -8,6 +8,8 @@ export var jump = 12
 
 export var gravity = 50
 
+export var movementAllowed = true
+
 onready var anim = $funnyguy/AnimationPlayer
 
 onready var hurtbox = $CollisionShape
@@ -35,7 +37,7 @@ func _ready():
 	anim.get_animation("punch").set_loop(false)
 
 func _physics_process(delta):
-	
+	if movementAllowed == true:
 		var direction = Vector3.ZERO
 		
 		
@@ -129,7 +131,8 @@ func _physics_process(delta):
 			model.rotation.y = look_direction.angle()
 			
 			
-		
+	else:
+		anim.play("idle")
 
 #func _process(delta):
 	#springarm.translation = translation

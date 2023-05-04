@@ -15,13 +15,12 @@ onready var player = $"../Player/MovingPlayer"
 
 onready var anim = $ColorRect/AnimationPlayer
 
-onready var pauseMenu = $pauseMenu
-
 onready var firstNode = $pauseMenu/VBoxContainer/Resume
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pauseMenu.visible = false
+	$pauseMenu.visible = false
+	$saveMenu.visible = false
 	anim.get_animation("fadeOut").set_loop(false)
 	anim.get_animation("fadeIn").set_loop(false)
 
@@ -34,10 +33,10 @@ func _process(delta):
 func pauseGame():
 	if get_tree().paused == true:
 		get_tree().paused = false
-		pauseMenu.visible = false
+		$pauseMenu.visible = false
 	else:
 		get_tree().paused = true
-		pauseMenu.visible = true
+		$pauseMenu.visible = true
 		firstNode.grab_focus()
 	
 func updateBoxes(boxCount):
@@ -64,7 +63,7 @@ func checkpoint(newCoords):
 
 func _on_Resume_pressed():
 	get_tree().paused = false
-	pauseMenu.visible = false
+	$pauseMenu.visible = false
 
 func _on_Restart_pressed():
 	get_tree().reload_current_scene()
@@ -76,3 +75,13 @@ func _on_QuitToHub_pressed():
 
 func _on_QuitToDesktop_pressed():
 	get_tree().quit()
+	
+
+func _on_Save_pressed():
+	RuntimeGameData.newRuntimeData.save_game()
+	$saveMenu/RichTextLabel.text = "Saved!"
+
+func _on_Quit_pressed():
+	$saveMenu/RichTextLabel.text = "Hey there! Do you want to save?"
+	$saveMenu.visible = false
+	player.movementAllowed = true

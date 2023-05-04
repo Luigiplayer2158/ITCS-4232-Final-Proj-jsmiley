@@ -109,7 +109,48 @@ margin_right = 116.0
 margin_bottom = 92.0
 text = "Quit To Desktop"
 
+[node name="saveMenu" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="saveMenu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -105.0
+margin_right = 104.0
+margin_bottom = 40.0
+text = "Hey there! Do you want to save?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="saveMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.0
+margin_top = 3.0
+margin_right = 40.0
+margin_bottom = 47.0
+
+[node name="Save" type="Button" parent="saveMenu/VBoxContainer"]
+margin_right = 78.0
+margin_bottom = 20.0
+text = "Yes"
+
+[node name="Quit" type="Button" parent="saveMenu/VBoxContainer"]
+margin_top = 24.0
+margin_right = 78.0
+margin_bottom = 44.0
+text = "No Thanks"
+
 [connection signal="pressed" from="pauseMenu/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/QuitToHub" to="." method="_on_QuitToHub_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/QuitToDesktop" to="." method="_on_QuitToDesktop_pressed"]
+[connection signal="pressed" from="saveMenu/VBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="saveMenu/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
