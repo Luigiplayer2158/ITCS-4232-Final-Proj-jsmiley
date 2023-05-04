@@ -56,6 +56,7 @@ func _on_Area_body_entered(body):
 		get_tree().paused = true
 		rankLabel.text = "Rank: " + str(RuntimeGameData.runTimeData.get(levelVariable))
 		endScreenAnim.play("LevelComplete")
+		$"../HUD/EndScreen/Continue".grab_focus()
 
 
 func _on_Area2_body_entered(body):
