@@ -1,4 +1,7 @@
-extends Resource
+[gd_resource type="GDScript" format=2]
+
+[resource]
+script/source = "extends Resource
 
 #https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 #https://www.youtube.com/watch?v=wSq1QJ-g91M
@@ -9,17 +12,17 @@ extends Resource
 
 class_name gameData
 
-const save_path = "./saves/playerGameData.tres"
+const save_path = \"./saves/playerGameData.tres\"
 
 export var rollEnable = false
 
-export var doubleJumpEnable = true
+export var doubleJumpEnable = false
 
 export var level1 = {
-	"deaths": 0,
-	"collectables": 0,
-	"time": "0:00",
-	"rank": "F"	
+	\"deaths\": 0,
+	\"collectables\": 0,
+	\"time\": \"0:00\",
+	\"rank\": \"F\"	
 }
 
 static func save_game(passedIn):
@@ -29,3 +32,4 @@ static func load_game() -> Resource:
 	if ResourceLoader.exists(save_path):
 		return load(save_path)
 	return null
+"

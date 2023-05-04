@@ -84,7 +84,7 @@ func _on_QuitToDesktop_pressed():
 	
 
 func _on_Save_pressed():
-	RuntimeGameData.newRuntimeData.save_game(RuntimeGameData.newRuntimeData)
+	RuntimeGameData.runTimeData.save_game(RuntimeGameData.runTimeData)
 	$saveMenu/RichTextLabel.text = "Saved!"
 
 func _on_Quit_pressed():

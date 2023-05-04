@@ -14,6 +14,8 @@ onready var anim = $funnyguy/AnimationPlayer
 
 onready var hurtbox = $CollisionShape
 
+onready var doubleJumpEnable = RuntimeGameData.runTimeData.doubleJumpEnable
+
 var velocity = Vector3.ZERO
 
 var snap = Vector3.DOWN
@@ -87,7 +89,7 @@ func _physics_process(delta):
 			snap = Vector3.ZERO
 			anim.play("jumping")
 		elif secondJump:
-			if RuntimeGameData.newRuntimeData.doubleJumpEnable == true:
+			if doubleJumpEnable == true:
 				if doubleJump == true:
 					velocity.y = jump
 					velocity.x = last.x
