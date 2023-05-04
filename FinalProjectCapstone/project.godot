@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Resource",
 "class": "gameData",
 "language": "GDScript",
 "path": "res://gameData.gd"
@@ -26,7 +26,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameData="*res://gameData.gd"
 RuntimeGameData="*res://RuntimeGameData.gd"
 
 [display]

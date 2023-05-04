@@ -11,7 +11,7 @@ func _ready():
 		$VBoxContainer/NewGame.grab_focus()
 
 func _on_StartButton_pressed():
-	RuntimeGameData.newRuntimeGameData = gameData.load_game()
+	RuntimeGameData.newRuntimeData.load_game()
 	get_tree().change_scene("res://Levels/Hub_1.tscn");
 
 func _on_QuitButton_pressed():

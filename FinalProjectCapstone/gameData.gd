@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 
 #https://gdscript.com/solutions/how-to-save-and-load-godot-game-data/
 #https://www.youtube.com/watch?v=wSq1QJ-g91M
@@ -7,7 +7,7 @@ extends Node
 
 class_name gameData
 
-const save_path = "user://playerGameData.res"
+const save_path = "./saves/playerGameData.res"
 
 export var rollEnable = false
 
@@ -20,10 +20,10 @@ export var level1 = {
 	"rank": "F"	
 }
 
-func save_game():
-	Resource.ResourceSaver.save(save_path, self)
+static func save_game(passedIn):
+	ResourceSaver.save(save_path, passedIn)
 	
 static func load_game() -> Resource:
-	if Resource.ResourceSaver.exists(save_path):
+	if ResourceLoader.exists(save_path):
 		return load(save_path)
 	return null

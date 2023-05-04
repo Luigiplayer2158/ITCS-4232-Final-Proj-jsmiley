@@ -16,7 +16,7 @@ onready var saveMenu = $"../HUD/saveMenu"
 
 onready var saveNode = $"../HUD/saveMenu/VBoxContainer/Save"
 
-onready var npcText = $"../HUD/RichTextLabel"
+onready var npcText = $"../HUD/saveMenu/RichTextLabel"
 
 export var doneOnce = false
 
