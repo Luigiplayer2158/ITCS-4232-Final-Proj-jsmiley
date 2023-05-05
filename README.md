@@ -5,7 +5,7 @@
 ### The lone adventurer found in the dungeon was once the explorer for the acquirer, the main villain. He helped him take over space dimensions in his long-running search for power.
 ### With the lone adventurer thrown behind bars after questioning the acquirer's motives, he recruited the help of the player in the form of the janitor. Going through the portals and completing the trials will loosen the aquirer's grip on the galaxy. 
 
-### Can you brave the perilous space worlds and restore peace?
+### Can you brave the perilous space challenges and restore peace?
 
 # Controls
 ## WASD or Left Joystick- Movement (Also works in menus)
