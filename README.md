@@ -15,6 +15,7 @@
 
 # Credits
 ### Models and animations were all created by me
+### Music was done by Leonardo Paz, https://opengameart.org/content/outer-space-music-pack
 ### Textures were obtained through https://opengameart.org
 ### Wood Texture: https://opengameart.org/content/light-wood-1024x1024
 ### Mossy Brick Textures: https://opengameart.org/content/tileable-bricks-ground-textures-set-1
