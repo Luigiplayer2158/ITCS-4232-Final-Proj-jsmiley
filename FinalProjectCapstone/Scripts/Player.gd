@@ -42,6 +42,7 @@ func _ready():
 
 func _physics_process(delta):
 	doubleJumpEnable = RuntimeGameData.runTimeData.doubleJumpEnable
+	rollEnable = RuntimeGameData.runTimeData.rollEnable
 	if movementAllowed == true:
 		var direction = Vector3.ZERO
 		
@@ -121,7 +122,7 @@ func _physics_process(delta):
 			else:
 				anim.play("inair")
 		
-		velocity = move_and_slide_with_snap(velocity, snap, Vector3.UP)
+		velocity = move_and_slide_with_snap(velocity, snap, Vector3.UP, true)
 		
 		if action:
 			if Vector2(velocity.x, velocity.z).length() > 0.2 && rollEnable:

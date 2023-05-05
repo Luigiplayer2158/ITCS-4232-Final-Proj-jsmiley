@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/05_building_a_colony_loop.ogg-efb46cbb4b8fc80a8ae9fb3050e2f24c.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/05_building_a_colony_loop.ogg"
+dest_files=[ "res://.import/05_building_a_colony_loop.ogg-efb46cbb4b8fc80a8ae9fb3050e2f24c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

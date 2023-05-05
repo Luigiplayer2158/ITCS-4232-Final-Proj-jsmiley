@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Objects/LevelBlocks/smallPlat.glb" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Objects/LevelBlocks/spikeBlock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/LevelBlocks/Checkpoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Helper/level_end_object.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sounds/Music/03_racing_through_asteroids_loop.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=10]
 resource_name = "platMove"
@@ -471,6 +472,11 @@ checkpointCoords = Vector3( -10, 9, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.9686, 10.2081, 0 )
 level_name = "level2"
 levelVariable = "level2Rank"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 9 )
+autoplay = true
 
 [connection signal="body_entered" from="DeathPlane/Area" to="HUD" method="_on_Area_body_entered"]
 

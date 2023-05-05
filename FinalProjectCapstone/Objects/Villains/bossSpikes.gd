@@ -133,7 +133,8 @@ func _process(delta):
 
 func _on_Area_body_entered(body):
 	if body is KinematicBody:
-		HUD.playerDeath()
+		if body.name == "MovingPlayer":
+			HUD.playerDeath()
 #https://godotengine.org/qa/26513/how-check-particular-animation-animationplayer-playing-not
 #help with checking current anim
 

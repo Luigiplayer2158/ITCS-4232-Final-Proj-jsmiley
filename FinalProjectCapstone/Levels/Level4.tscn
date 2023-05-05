@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Objects/LevelBlocks/smallPlat.glb" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Objects/Helper/level_end_object.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/LevelBlocks/LongPlatformObject.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/LevelBlocks/shrinkingPlat.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/Music/03_racing_through_asteroids_loop.ogg" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=2]
 resource_name = "fadeIn"
@@ -2017,6 +2018,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85479, -0.617543, 51.404 )
 
 [node name="AnimationPlayer" parent="SpikeyBlock4/spikeBlock" index="2"]
 anims/SpikeBlockMotion = SubResource( 32 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 11 )
+autoplay = true
 
 [connection signal="body_entered" from="DeathPlane/Area" to="HUD" method="_on_Area_body_entered"]
 
