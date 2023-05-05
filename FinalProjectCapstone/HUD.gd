@@ -56,7 +56,7 @@ func _on_Area_body_entered(body):
 func playerDeath():
 	print("it has occured");
 	deathCount = deathCount + 1
-	$deaths.text = "x " + str(deathCount)
+	$deaths.text = "Deaths x " + str(deathCount)
 	$EndScreen/RichTextLabel/deathCount.text = str(deathCount)
 	get_tree().paused = true
 	anim.play("fadeOut")

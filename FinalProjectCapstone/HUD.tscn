@@ -43,7 +43,7 @@ script = ExtResource( 1 )
 margin_right = 40.0
 margin_bottom = 14.0
 rect_scale = Vector2( 5, 5 )
-text = "X 0"
+text = "Deaths X 0"
 uppercase = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
