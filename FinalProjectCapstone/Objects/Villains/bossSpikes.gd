@@ -139,7 +139,7 @@ func _on_Area_body_entered(body):
 
 func _on_villainArea_body_entered(body):
 	if villainHealth > 0:
-		if $"../Player/MovingPlayer/funnyguy/AnimationPlayer".current_animation == "punch":
+		if $"../Player/MovingPlayer/funnyguy/AnimationPlayer".current_animation == "punch" || $"../Player/MovingPlayer/funnyguy/AnimationPlayer".current_animation == "roll" :
 			if canTakeDamage == true:
 				villainHealth = villainHealth - 1
 				$"../villainHenchmanGuy/AnimationPlayer".play("bossDamage")
