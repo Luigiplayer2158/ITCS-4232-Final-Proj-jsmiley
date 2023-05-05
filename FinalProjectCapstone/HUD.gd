@@ -60,6 +60,7 @@ func playerDeath():
 	$EndScreen/RichTextLabel/deathCount.text = str(deathCount)
 	get_tree().paused = true
 	anim.play("fadeOut")
+	yield(get_tree().create_timer(2), "timeout")
 	player.global_transform.origin = playerRespawnCoords
 	get_tree().paused = false
 	anim.play("fadeIn")

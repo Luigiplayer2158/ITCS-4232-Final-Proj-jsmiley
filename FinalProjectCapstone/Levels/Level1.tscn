@@ -13,13 +13,13 @@
 [ext_resource path="res://Objects/Helper/DeathPlane.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/LevelBlocks/Checkpoint.tscn" type="PackedScene" id=12]
 
-[sub_resource type="PanoramaSky" id=7]
+[sub_resource type="PanoramaSky" id=9]
 radiance_size = 1
 panorama = ExtResource( 5 )
 
 [sub_resource type="Environment" id=2]
 background_mode = 2
-background_sky = SubResource( 7 )
+background_sky = SubResource( 9 )
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_sky_contribution = 0.36
 fog_color = Color( 0.156863, 0.298039, 0.443137, 1 )

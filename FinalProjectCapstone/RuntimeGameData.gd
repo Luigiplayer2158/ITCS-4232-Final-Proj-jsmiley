@@ -6,6 +6,9 @@ extends Node
 #help with instance of custom class, which is what gamedata is.
 #https://www.youtube.com/watch?v=ML-hiNytIqE
 #also help with creating a save load system
+#https://www.reddit.com/r/godot/comments/vin8g4/confused_why_my_autoload_variables_are_nil_and/
+#helped me understand why my autoload wasnt working
+#additional help provided by the godot documentation
 
 const newRuntimeData = preload("res://gameData.gd")
 var runTimeData := newRuntimeData.new()
