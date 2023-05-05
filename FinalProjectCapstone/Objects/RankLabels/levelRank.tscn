@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/RankLabels/rankF.glb" type="PackedScene" id=1]
+[ext_resource path="res://Objects/RankLabels/rankB.glb" type="PackedScene" id=2]
+[ext_resource path="res://Objects/RankLabels/rankC.glb" type="PackedScene" id=3]
+[ext_resource path="res://Objects/RankLabels/rankD.glb" type="PackedScene" id=4]
+[ext_resource path="res://Objects/RankLabels/rankS.glb" type="PackedScene" id=5]
+[ext_resource path="res://Objects/RankLabels/rankA.glb" type="PackedScene" id=6]
+[ext_resource path="res://Objects/RankLabels/levelRank.gd" type="Script" id=7]
+
+[node name="levelRank" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="rankF" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.224702 )
+
+[node name="rankA" parent="." instance=ExtResource( 6 )]
+
+[node name="rankB" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.374672 )
+
+[node name="rankC" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0476032 )
+
+[node name="rankD" parent="." instance=ExtResource( 4 )]
+
+[node name="rankS" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1.29182, 0, 0, 0, 1.29182, 0, 0.148933, 0 )
