@@ -43,8 +43,9 @@ func _process(delta):
 			$"../smallPlat3".visible = true
 			playingAllowed = false
 			RuntimeGameData.runTimeData.doubleJumpEnable = true
+			RuntimeGameData.runTimeData.rollEnable = true
 			djNotif.visible = true
-			yield(get_tree().create_timer(4), "timeout")
+			yield(get_tree().create_timer(8), "timeout")
 			djNotif.visible = false
 			
 	

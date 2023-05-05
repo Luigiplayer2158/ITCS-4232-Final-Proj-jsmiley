@@ -210,14 +210,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -556.0
-margin_top = -121.0
-margin_right = -329.0
-margin_bottom = -73.0
-rect_scale = Vector2( 5, 5 )
-text = "   You now have the double jump!
+margin_left = -814.0
+margin_top = -205.0
+margin_right = -402.0
+margin_bottom = -89.0
+rect_scale = Vector2( 4, 4 )
+text = "   You now have the double jump and roll abilities!
 
-Press Jump in the air to jump again!"
+Press Jump in the air to jump again!
+Press Action while moving to roll!
+You gain a higher jump while rolling!
+
+Now go back and get those S ranks! (These abilities should help!)"
+align = 1
 
 [connection signal="pressed" from="pauseMenu/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
