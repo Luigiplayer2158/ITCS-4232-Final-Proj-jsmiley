@@ -205,6 +205,20 @@ margin_bottom = 20.0
 rect_scale = Vector2( 6, 6 )
 text = "Rank:"
 
+[node name="doubleJumpNotif" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -556.0
+margin_top = -121.0
+margin_right = -329.0
+margin_bottom = -73.0
+rect_scale = Vector2( 5, 5 )
+text = "   You now have the double jump!
+
+Press Jump in the air to jump again!"
+
 [connection signal="pressed" from="pauseMenu/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="pauseMenu/VBoxContainer/QuitToHub" to="." method="_on_QuitToHub_pressed"]

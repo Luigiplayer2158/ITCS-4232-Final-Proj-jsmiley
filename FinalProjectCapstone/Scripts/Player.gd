@@ -41,6 +41,7 @@ func _ready():
 	anim.get_animation("punch").set_loop(false)
 
 func _physics_process(delta):
+	doubleJumpEnable = RuntimeGameData.runTimeData.doubleJumpEnable
 	if movementAllowed == true:
 		var direction = Vector3.ZERO
 		

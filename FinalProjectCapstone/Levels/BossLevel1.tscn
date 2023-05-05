@@ -3243,6 +3243,9 @@ transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0 )
 [node name="smallPlat2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 13.8466 )
 
+[node name="smallPlat3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 19.8296 )
+
 [node name="DeathPlane" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.73771, 0, -6.295, 0 )
 
@@ -3319,12 +3322,12 @@ shadow_enabled = true
 environment = SubResource( 6 )
 
 [node name="level_end" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.225, 70.2622 )
-level_name = "level4"
-levelVariable = "level4Rank"
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.225, 19.965 )
+level_name = "BossLevel"
+levelVariable = "level5Rank"
 
 [node name="LongPlatformObject4" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.970633, 6.90741 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.953008, 6.907 )
 
 [node name="longPlat" parent="LongPlatformObject4" index="0"]
 script = null
@@ -3344,7 +3347,7 @@ anims/tpose = SubResource( 21 )
 anims/walking = SubResource( 22 )
 
 [node name="bossSpikes" parent="." instance=ExtResource( 7 )]
-transform = Transform( -1.19209e-07, -8.9407e-08, -1, -1, -1.19209e-07, 8.9407e-08, -8.9407e-08, 1, -1.19209e-07, 0, 0, -0.0070107 )
+transform = Transform( 0, 0, -1, -1, 0, 0, 0, 1, 0, 0, -4.4205, 0 )
 
 [node name="villainHenchmanGuy" parent="." instance=ExtResource( 6 )]
 transform = Transform( -0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0, 0, 13.5415 )

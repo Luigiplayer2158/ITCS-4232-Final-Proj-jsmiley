@@ -23,6 +23,7 @@ export var pauseAllowed = true
 func _ready():
 	$pauseMenu.visible = false
 	$saveMenu.visible = false
+	$doubleJumpNotif.visible = false
 	anim.get_animation("fadeOut").set_loop(false)
 	anim.get_animation("fadeIn").set_loop(false)
 

@@ -19,6 +19,7 @@ albedo_texture = SubResource( 4 )
 material = SubResource( 5 )
 
 [sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 1, 0.466518 )
 
 [node name="level_end" type="Spatial"]
 script = ExtResource( 1 )

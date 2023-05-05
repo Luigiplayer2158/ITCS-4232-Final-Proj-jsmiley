@@ -7,9 +7,13 @@ extends Spatial
 
 onready var HUD = $"../HUD"
 
+onready var djNotif = $"../HUD/doubleJumpNotif"
+
 onready var player = $"../Player"
 
 onready var villain = $"../villainHenchmanGuy"
+onready var longPlat = $"../LongPlatformObject4"
+onready var endObj = $"../level_end"
 
 onready var anim = $AnimationPlayer
 
@@ -25,6 +29,8 @@ func _ready():
 	anim.get_animation("bossSpikesR-L").set_loop(false)
 	anim.get_animation("bossSpikesL-R").set_loop(false)
 	anim.get_animation("bossSpikesForward").set_loop(false)
+	endObj.portalAllowed = false
+	$"../smallPlat3".visible = false
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +39,14 @@ func _process(delta):
 		if doOnce == true:
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossDefeat")
 			doOnce = false
+			endObj.portalAllowed = true
+			$"../smallPlat3".visible = true
 			playingAllowed = false
+			RuntimeGameData.runTimeData.doubleJumpEnable = true
+			djNotif.visible = true
+			yield(get_tree().create_timer(4), "timeout")
+			djNotif.visible = false
+			
 	
 	if canTakeDamage == false:
 		if villainHealth != 0:
@@ -49,60 +62,71 @@ func _process(delta):
 	if phase == 1:
 		if hasntAttacked:
 			hasntAttacked = false
+			longPlat.global_transform.origin = Vector3(0.00,-13.00,-10)
 			yield(get_tree().create_timer(4), "timeout")
 			playingAllowed = false
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActR-L")
 			yield(get_tree().create_timer(3), "timeout")
 			$AnimationPlayer.play("bossSpikesL-R")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
-			yield(get_tree().create_timer(2), "timeout")
+			yield(get_tree().create_timer(3), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActL-R")
 			yield(get_tree().create_timer(3), "timeout")
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			playingAllowed = true
-			yield(get_tree().create_timer(10), "timeout")
-		else:
-			yield(get_tree().create_timer(30), "timeout")
-			hasntAttacked = true
+			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	elif phase == 2:
 		if hasntAttacked:
 			hasntAttacked = false
+			longPlat.global_transform.origin = Vector3(0.00,-13.00,-10)
 			yield(get_tree().create_timer(4), "timeout")
 			playingAllowed = false
+			$"../villainHenchmanGuy/AnimationPlayer".play("bossActL-R")
+			yield(get_tree().create_timer(2), "timeout")
+			$AnimationPlayer.play("bossSpikesR-L")
+			$"../villainHenchmanGuy/AnimationPlayer".stop()
+			yield(get_tree().create_timer(2), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActR-L")
-			yield(get_tree().create_timer(3), "timeout")
+			yield(get_tree().create_timer(2), "timeout")
 			$AnimationPlayer.play("bossSpikesL-R")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			yield(get_tree().create_timer(2), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActL-R")
-			yield(get_tree().create_timer(3), "timeout")
+			yield(get_tree().create_timer(2), "timeout")
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			playingAllowed = true
-			yield(get_tree().create_timer(10), "timeout")
-		else:
-			yield(get_tree().create_timer(30), "timeout")
-			hasntAttacked = true
+			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	elif phase == 3:
 		if hasntAttacked:
 			hasntAttacked = false
+			longPlat.global_transform.origin = Vector3(0.00,-13.00,-10.00)
 			yield(get_tree().create_timer(4), "timeout")
 			playingAllowed = false
+			$"../villainHenchmanGuy/AnimationPlayer".play("bossActL-R")
+			yield(get_tree().create_timer(2), "timeout")
+			$AnimationPlayer.play("bossSpikesR-L")
+			$"../villainHenchmanGuy/AnimationPlayer".stop()
+			yield(get_tree().create_timer(2), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActR-L")
-			yield(get_tree().create_timer(3), "timeout")
+			yield(get_tree().create_timer(2), "timeout")
 			$AnimationPlayer.play("bossSpikesL-R")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			yield(get_tree().create_timer(2), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActL-R")
-			yield(get_tree().create_timer(3), "timeout")
+			yield(get_tree().create_timer(2), "timeout")
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
-			playingAllowed = true
-			yield(get_tree().create_timer(10), "timeout")
-		else:
-			yield(get_tree().create_timer(30), "timeout")
-			hasntAttacked = true
+			yield(get_tree().create_timer(2), "timeout")
+			$"../villainHenchmanGuy/AnimationPlayer".play("bossActForward")
+			yield(get_tree().create_timer(3), "timeout")
+			$AnimationPlayer.play("bossSpikesForward")
+			$"../villainHenchmanGuy/AnimationPlayer".stop()
+			yield(get_tree().create_timer(1), "timeout")
+			$"../villainHenchmanGuy/AnimationPlayer".play("bossStun")
+			$"../bossSpikes/AnimationPlayer".play("autohide")
+			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	else:
 		pass
 

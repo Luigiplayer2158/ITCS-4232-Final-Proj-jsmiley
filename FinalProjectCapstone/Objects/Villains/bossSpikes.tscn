@@ -25,7 +25,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/keys = PoolRealArray( 0, 1, 10, 0, 0, 0, 0, -0.707107, 0.707107, 1, 1, 1, 0.001, 1, 0, 0, 10, 0.5, -0.5, -0.5, 0.5, 1, 1, 1, 1, 1, 0, 0, 15, 0.5, -0.5, -0.5, 0.5, 1, 1, 1 )
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, -10, 0.5, 0.5, -0.5, -0.5, 1, 1, 1, 1, 1, 0, 0, 21, 0.5, 0.5, -0.5, -0.5, 1, 1, 1 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "bossSpikesL-R"
@@ -48,7 +48,7 @@ tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 10, 0, 0, 0, 0, -0.707107, 0.707107, 1, 1, 1, 1, 1, -10, 0, 0, 0, 0, -0.707107, 0.707107, 1, 1, 1 )
 
 [node name="bossSpikes" type="Spatial"]
-transform = Transform( 1.19209e-07, -2.98023e-08, -1, -1, 0, -5.96046e-08, -2.98023e-08, 1, 0, 0, -4.4205, 0 )
+transform = Transform( 0, 0, -1, 1, 0, 0, 0, -1, 0, 0, 0, 21 )
 script = ExtResource( 3 )
 
 [node name="SpikeyBlock" type="Spatial" parent="."]
