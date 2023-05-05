@@ -21,3 +21,4 @@
 ### Grey Stone Floor Texture: https://opengameart.org/content/grey-stone-brick-floor-256px
 ### Iron Bars / Trash Can / Spike Texture: https://opengameart.org/content/commission-medieval
 ### Space Background: https://opengameart.org/content/starsspace-background
+### Any other visuals not listed here were created by me such as character textures and the level complete gradient
