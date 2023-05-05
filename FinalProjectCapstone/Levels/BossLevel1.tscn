@@ -3405,6 +3405,7 @@ shape = SubResource( 31 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 11 )
+volume_db = -5.0
 autoplay = true
 
 [connection signal="body_entered" from="DeathPlane/Area" to="HUD" method="_on_Area_body_entered"]

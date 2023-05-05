@@ -14,6 +14,8 @@ onready var endScreen = $"../HUD/EndScreen"
 onready var endScreenAnim = $"../HUD/EndScreen/AnimationPlayer"
 onready var rankLabel = $"../HUD/EndScreen/rankLabel"
 onready var deathCount = $"../HUD".deathCount
+onready var playerAudio = $"../Player/MovingPlayer/AudioStreamPlayer"
+onready var audioWooHoo = preload("res://Sounds/VoiceClips/player_woohoo.ogg")
 
 export var portalAllowed = true
 
@@ -58,6 +60,10 @@ func _on_Area_body_entered(body):
 				RuntimeGameData.runTimeData.set(levelVariable, "D")
 			
 			get_tree().paused = true
+			playerAudio.stop()
+			playerAudio.stream = audioWooHoo
+			playerAudio.stream.loop = false
+			playerAudio.play()
 			rankLabel.text = "Rank: " + str(RuntimeGameData.runTimeData.get(levelVariable))
 			endScreenAnim.play("LevelComplete")
 			$"../HUD/EndScreen/Continue".grab_focus()

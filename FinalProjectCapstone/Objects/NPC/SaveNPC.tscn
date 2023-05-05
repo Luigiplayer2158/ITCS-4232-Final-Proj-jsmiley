@@ -1930,5 +1930,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86062, 2.48395 )
 [node name="CollisionShape" type="CollisionShape" parent="saveNPCguy/Area"]
 shape = SubResource( 13 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="saveNPCguy/Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_exited" from="saveNPCguy/Area" to="." method="_on_Area_body_exited"]

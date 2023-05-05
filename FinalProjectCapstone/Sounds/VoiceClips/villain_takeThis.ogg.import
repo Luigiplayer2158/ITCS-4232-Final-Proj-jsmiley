@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/villain_takeThis.ogg-2bba41d20a89aa254bcf68397f3b2f05.oggstr"
+
+[deps]
+
+source_file="res://Sounds/VoiceClips/villain_takeThis.ogg"
+dest_files=[ "res://.import/villain_takeThis.ogg-2bba41d20a89aa254bcf68397f3b2f05.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

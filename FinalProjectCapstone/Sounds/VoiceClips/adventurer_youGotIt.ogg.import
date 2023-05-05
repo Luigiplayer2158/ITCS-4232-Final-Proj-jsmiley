@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/adventurer_youGotIt.ogg-b6e59fd6b90f71f5128a86baaf356ec7.oggstr"
+
+[deps]
+
+source_file="res://Sounds/VoiceClips/adventurer_youGotIt.ogg"
+dest_files=[ "res://.import/adventurer_youGotIt.ogg-b6e59fd6b90f71f5128a86baaf356ec7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

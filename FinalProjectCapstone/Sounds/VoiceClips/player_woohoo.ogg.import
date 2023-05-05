@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/player_woohoo.ogg-20b3c0596fe49be2bc02805accf33dbd.oggstr"
+
+[deps]
+
+source_file="res://Sounds/VoiceClips/player_woohoo.ogg"
+dest_files=[ "res://.import/player_woohoo.ogg-20b3c0596fe49be2bc02805accf33dbd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -84,6 +84,7 @@ text = "Quit"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 5 )
+volume_db = -5.0
 autoplay = true
 
 [connection signal="pressed" from="TitleScreen/VBoxContainer/ContinueGame" to="TitleScreen" method="_on_StartButton_pressed"]

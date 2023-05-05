@@ -62,6 +62,7 @@ tracks/0/keys = PoolRealArray( 0, 1, -1.76332, 1.80509, 97.8798, 0, 1, 0, 7.5498
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 13 )
+volume_db = -5.0
 autoplay = true
 
 [node name="level_end" parent="." instance=ExtResource( 7 )]

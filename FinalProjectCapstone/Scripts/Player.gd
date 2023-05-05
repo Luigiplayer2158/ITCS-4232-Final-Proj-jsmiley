@@ -18,6 +18,15 @@ onready var doubleJumpEnable = RuntimeGameData.runTimeData.doubleJumpEnable
 
 onready var rollEnable = RuntimeGameData.runTimeData.rollEnable
 
+onready var audioCheckpoint = preload("res://Sounds/VoiceClips/player_checkpoint.ogg")
+onready var audioJump = preload("res://Sounds/VoiceClips/player_jump.ogg")
+onready var audioPunch = preload("res://Sounds/VoiceClips/player_punch.ogg")
+onready var audioWooHoo = preload("res://Sounds/VoiceClips/player_woohoo.ogg")
+
+#https://docs.godotengine.org/en/stable/classes/class_randomnumbergenerator.html
+#RNG for voice clips
+var rngVoice = RandomNumberGenerator.new()
+
 var velocity = Vector3.ZERO
 
 var snap = Vector3.DOWN
@@ -92,6 +101,10 @@ func _physics_process(delta):
 			velocity.z = last.z
 			snap = Vector3.ZERO
 			anim.play("jumping")
+			if rngVoice.randi_range(0,1) == 1:
+				$AudioStreamPlayer.stream = audioJump
+				$AudioStreamPlayer.stream.loop = false
+				$AudioStreamPlayer.play()
 		elif secondJump:
 			if doubleJumpEnable == true:
 				if doubleJump == true:

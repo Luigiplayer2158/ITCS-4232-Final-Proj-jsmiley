@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/adventurer_seeYouLater.ogg-eb9f1efe89f4434d35cd5ee2dd6dcdd4.oggstr"
+
+[deps]
+
+source_file="res://Sounds/VoiceClips/adventurer_seeYouLater.ogg"
+dest_files=[ "res://.import/adventurer_seeYouLater.ogg-eb9f1efe89f4434d35cd5ee2dd6dcdd4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -13,6 +13,9 @@ onready var playerRespawnCoords = Vector3(0.00,5.00,0.00)
 
 onready var player = $"../Player/MovingPlayer"
 
+onready var npcAudio = $"../SaveNPC/AudioStreamPlayer"
+onready var youGotIt = preload("res://Sounds/VoiceClips/adventurer_youGotIt.ogg")
+
 onready var anim = $ColorRect/AnimationPlayer
 
 onready var firstNode = $pauseMenu/VBoxContainer/Resume
@@ -89,6 +92,9 @@ func _on_QuitToDesktop_pressed():
 
 func _on_Save_pressed():
 	RuntimeGameData.runTimeData.save_game(RuntimeGameData.runTimeData)
+	npcAudio.stream = youGotIt
+	npcAudio.stream.loop = false
+	npcAudio.play()
 	$saveMenu/RichTextLabel.text = "Saved!"
 
 func _on_Quit_pressed():

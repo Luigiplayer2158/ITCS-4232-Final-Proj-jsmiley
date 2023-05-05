@@ -137,6 +137,7 @@ text = "Bye"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 8 )
+volume_db = -5.0
 autoplay = true
 
 [editable path="Spatial"]

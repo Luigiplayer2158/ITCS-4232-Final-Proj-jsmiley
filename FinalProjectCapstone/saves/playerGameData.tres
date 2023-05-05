@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-rollEnable = true
-doubleJumpEnable = true
-level1Rank = "A"
-level2Rank = "B"
-level3Rank = "S"
-level4Rank = "B"
-level5Rank = "S"
+rollEnable = false
+doubleJumpEnable = false
+level1Rank = "F"
+level2Rank = "F"
+level3Rank = "F"
+level4Rank = "F"
+level5Rank = "F"
