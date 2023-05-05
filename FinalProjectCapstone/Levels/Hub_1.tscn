@@ -39,7 +39,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00696719 )
 
 [node name="Spatial4" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99519, 1.36599, 1.92997 )
-level_name = "test_level1"
+level_name = "Level4"
 
 [node name="MeshInstance" parent="Spatial4/Area" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00696719 )
