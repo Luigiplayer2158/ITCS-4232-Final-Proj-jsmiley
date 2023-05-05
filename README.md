@@ -19,5 +19,5 @@
 ### Wood Texture: https://opengameart.org/content/light-wood-1024x1024
 ### Mossy Brick Textures: https://opengameart.org/content/tileable-bricks-ground-textures-set-1
 ### Grey Stone Floor Texture: https://opengameart.org/content/grey-stone-brick-floor-256px
-### Iron Bars / Trash Can Texture: https://opengameart.org/content/commission-medieval
+### Iron Bars / Trash Can / Spike Texture: https://opengameart.org/content/commission-medieval
 ### Space Background: https://opengameart.org/content/starsspace-background
