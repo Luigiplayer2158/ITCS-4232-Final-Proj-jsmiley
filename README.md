@@ -24,4 +24,4 @@
 ### Space Background: https://opengameart.org/content/starsspace-background
 ### Any other visuals not listed here were created by me such as character textures and the level complete gradient
 ###
-### For help with coding I referred to the Godot Documentation frequently, however when more specific things came up or I used a tutorial I put a citation in the code saying where I got assistance from on other parts of the internet.
+### For help with coding I referred to the Godot Documentation frequently, however when more specific things came up or I used a tutorial I put a citation in the code saying where I got assistance from.
