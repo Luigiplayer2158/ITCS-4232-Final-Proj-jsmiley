@@ -93,6 +93,8 @@ anims/bossSpikesForward = SubResource( 4 )
 anims/bossSpikesL-R = SubResource( 2 )
 anims/bossSpikesR-L = SubResource( 3 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="SpikeyBlock/spikeBlock/Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_entered" from="SpikeyBlock2/spikeBlock/Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_entered" from="SpikeyBlock3/spikeBlock/Area" to="." method="_on_Area_body_entered"]

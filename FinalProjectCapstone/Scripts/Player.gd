@@ -101,7 +101,7 @@ func _physics_process(delta):
 			velocity.z = last.z
 			snap = Vector3.ZERO
 			anim.play("jumping")
-			if rngVoice.randi_range(0,1) == 1:
+			if rngVoice.randi_range(0,1) == 1 && $AudioStreamPlayer.playing == false:
 				$AudioStreamPlayer.stream = audioJump
 				$AudioStreamPlayer.stream.loop = false
 				$AudioStreamPlayer.play()
@@ -142,7 +142,11 @@ func _physics_process(delta):
 				anim.play("roll")
 			else:
 				anim.play("punch")
-		
+				if rngVoice.randi_range(0,1) == 1 && $AudioStreamPlayer.playing == false:
+					$AudioStreamPlayer.stream = audioPunch
+					$AudioStreamPlayer.stream.loop = false
+					$AudioStreamPlayer.play()
+			
 		if Vector2(velocity.x, velocity.z).length() > 0.2:
 			last.z = velocity.z
 			last.x = velocity.x

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/villain_damage.ogg-7815996cd0bc6f82456ce64d0dbce170.oggstr"
+
+[deps]
+
+source_file="res://Sounds/VoiceClips/villain_damage.ogg"
+dest_files=[ "res://.import/villain_damage.ogg-7815996cd0bc6f82456ce64d0dbce170.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

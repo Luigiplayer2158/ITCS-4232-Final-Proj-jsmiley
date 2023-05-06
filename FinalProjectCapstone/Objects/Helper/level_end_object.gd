@@ -2,8 +2,8 @@ extends Spatial
 
 export (String) var level_name = "";
 var scaleModif = 0.05;
-var portal_enabled = false;
-var enable_grow = false;
+export var portal_enabled = false;
+export var enable_grow = false;
 export var deathsC = 7
 export var deathsB = 5
 export var deathsA = 3

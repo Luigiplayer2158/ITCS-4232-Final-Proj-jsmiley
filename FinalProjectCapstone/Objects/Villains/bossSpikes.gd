@@ -24,6 +24,12 @@ var doOnce = true
 var playingAllowed = true
 var hasntAttacked = true
 
+onready var audioDamage = preload("res://Sounds/VoiceClips/villain_damage.ogg")
+onready var audioReady = preload("res://Sounds/VoiceClips/villain_getReady.ogg")
+onready var audioBegin = preload("res://Sounds/VoiceClips/villain_phaseBegin.ogg")
+onready var audioScream = preload("res://Sounds/VoiceClips/villain_scream.ogg")
+onready var audioTake = preload("res://Sounds/VoiceClips/villain_takeThis.ogg")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.get_animation("bossSpikesR-L").set_loop(false)
@@ -31,6 +37,9 @@ func _ready():
 	anim.get_animation("bossSpikesForward").set_loop(false)
 	endObj.portalAllowed = false
 	$"../smallPlat3".visible = false
+	$AudioStreamPlayer.stream = audioBegin
+	$AudioStreamPlayer.stream.loop = false
+	$AudioStreamPlayer.play()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,6 +49,8 @@ func _process(delta):
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossDefeat")
 			doOnce = false
 			endObj.portalAllowed = true
+			endObj.portal_enabled = true
+			endObj.enable_grow = true
 			$"../smallPlat3".visible = true
 			playingAllowed = false
 			RuntimeGameData.runTimeData.doubleJumpEnable = true
@@ -65,6 +76,9 @@ func _process(delta):
 			hasntAttacked = false
 			longPlat.global_transform.origin = Vector3(0.00,-13.00,-10)
 			yield(get_tree().create_timer(4), "timeout")
+			$AudioStreamPlayer.stream = audioReady
+			$AudioStreamPlayer.stream.loop = false
+			$AudioStreamPlayer.play()
 			playingAllowed = false
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActR-L")
 			yield(get_tree().create_timer(3), "timeout")
@@ -72,10 +86,14 @@ func _process(delta):
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			yield(get_tree().create_timer(3), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActL-R")
+			$AudioStreamPlayer.stream = audioTake
+			$AudioStreamPlayer.stream.loop = false
+			$AudioStreamPlayer.play()
 			yield(get_tree().create_timer(3), "timeout")
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			playingAllowed = true
+			yield(get_tree().create_timer(4), "timeout")
 			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	elif phase == 2:
 		if hasntAttacked:
@@ -83,12 +101,18 @@ func _process(delta):
 			longPlat.global_transform.origin = Vector3(0.00,-13.00,-10)
 			yield(get_tree().create_timer(4), "timeout")
 			playingAllowed = false
+			$AudioStreamPlayer.stream = audioReady
+			$AudioStreamPlayer.stream.loop = false
+			$AudioStreamPlayer.play()
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActL-R")
 			yield(get_tree().create_timer(2), "timeout")
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			yield(get_tree().create_timer(2), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActR-L")
+			$AudioStreamPlayer.stream = audioTake
+			$AudioStreamPlayer.stream.loop = false
+			$AudioStreamPlayer.play()
 			yield(get_tree().create_timer(2), "timeout")
 			$AnimationPlayer.play("bossSpikesL-R")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
@@ -98,12 +122,16 @@ func _process(delta):
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			playingAllowed = true
+			yield(get_tree().create_timer(4), "timeout")
 			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	elif phase == 3:
 		if hasntAttacked:
 			hasntAttacked = false
 			longPlat.global_transform.origin = Vector3(0.00,-13.00,-10.00)
 			yield(get_tree().create_timer(4), "timeout")
+			$AudioStreamPlayer.stream = audioReady
+			$AudioStreamPlayer.stream.loop = false
+			$AudioStreamPlayer.play()
 			playingAllowed = false
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActL-R")
 			yield(get_tree().create_timer(2), "timeout")
@@ -111,6 +139,9 @@ func _process(delta):
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			yield(get_tree().create_timer(2), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActR-L")
+			$AudioStreamPlayer.stream = audioTake
+			$AudioStreamPlayer.stream.loop = false
+			$AudioStreamPlayer.play()
 			yield(get_tree().create_timer(2), "timeout")
 			$AnimationPlayer.play("bossSpikesL-R")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
@@ -121,12 +152,17 @@ func _process(delta):
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			yield(get_tree().create_timer(2), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActForward")
-			yield(get_tree().create_timer(3), "timeout")
+			yield(get_tree().create_timer(2.3), "timeout")
+			$AudioStreamPlayer.stream = audioScream
+			$AudioStreamPlayer.stream.loop = false
+			$AudioStreamPlayer.play()
+			yield(get_tree().create_timer(0.7), "timeout")
 			$AnimationPlayer.play("bossSpikesForward")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			yield(get_tree().create_timer(1), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossStun")
 			$"../bossSpikes/AnimationPlayer".play("autohide")
+			yield(get_tree().create_timer(4), "timeout")
 			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	else:
 		pass
@@ -144,6 +180,9 @@ func _on_villainArea_body_entered(body):
 			if canTakeDamage == true:
 				villainHealth = villainHealth - 1
 				$"../villainHenchmanGuy/AnimationPlayer".play("bossDamage")
+				$AudioStreamPlayer.stream = audioDamage
+				$AudioStreamPlayer.stream.loop = false
+				$AudioStreamPlayer.play()
 				canTakeDamage = false
 				hasntAttacked = true
 				phase = phase + 1
