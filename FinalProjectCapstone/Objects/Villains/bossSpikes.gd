@@ -93,7 +93,7 @@ func _process(delta):
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			playingAllowed = true
-			yield(get_tree().create_timer(4), "timeout")
+			yield(get_tree().create_timer(2), "timeout")
 			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	elif phase == 2:
 		if hasntAttacked:
@@ -122,7 +122,7 @@ func _process(delta):
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			playingAllowed = true
-			yield(get_tree().create_timer(4), "timeout")
+			yield(get_tree().create_timer(2), "timeout")
 			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	elif phase == 3:
 		if hasntAttacked:
@@ -151,6 +151,9 @@ func _process(delta):
 			$AnimationPlayer.play("bossSpikesR-L")
 			$"../villainHenchmanGuy/AnimationPlayer".stop()
 			yield(get_tree().create_timer(2), "timeout")
+			$AudioStreamPlayer.stream = audioReady
+			$AudioStreamPlayer.stream.loop = false
+			$AudioStreamPlayer.play()
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossActForward")
 			yield(get_tree().create_timer(2.3), "timeout")
 			$AudioStreamPlayer.stream = audioScream
@@ -162,7 +165,7 @@ func _process(delta):
 			yield(get_tree().create_timer(1), "timeout")
 			$"../villainHenchmanGuy/AnimationPlayer".play("bossStun")
 			$"../bossSpikes/AnimationPlayer".play("autohide")
-			yield(get_tree().create_timer(4), "timeout")
+			yield(get_tree().create_timer(2), "timeout")
 			longPlat.global_transform.origin = Vector3(0.00,-0.953,6.5)
 	else:
 		pass
