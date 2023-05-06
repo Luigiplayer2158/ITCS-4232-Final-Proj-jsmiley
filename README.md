@@ -14,7 +14,7 @@
 ## Escape or Start Button, Pause
 
 # Credits
-### Models and animations were all created by me
+### Models, animations, and voice clips were all created by me
 ### Music was done by Leonardo Paz, https://opengameart.org/content/outer-space-music-pack
 ### Textures were obtained through https://opengameart.org
 ### Wood Texture: https://opengameart.org/content/light-wood-1024x1024
@@ -23,3 +23,5 @@
 ### Iron Bars / Trash Can / Spike Texture: https://opengameart.org/content/commission-medieval
 ### Space Background: https://opengameart.org/content/starsspace-background
 ### Any other visuals not listed here were created by me such as character textures and the level complete gradient
+###
+### For help with coding I referred to the Godot Documentation frequently, however when more specific things came up or I used a tutorial I put a citation in the code saying where I got assistance from on other parts of the internet.
