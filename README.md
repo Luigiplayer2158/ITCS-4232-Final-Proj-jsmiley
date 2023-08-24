@@ -1,6 +1,9 @@
 # ITCS-4232-Final-Proj-jsmiley
 ## This is my final project for ITCS 4232.
 
+## Here is a video of the game
+## https://drive.google.com/file/d/1FlZkst3ubfBQ_EVItEASUEcrwTEvcWn9/view?usp=sharing
+
 # Story
 ### The lone adventurer found in the dungeon was once the explorer for the acquirer, the main villain. He helped him take over space dimensions in his long-running search for power.
 ### With the lone adventurer thrown behind bars after questioning the acquirer's motives, he recruited the help of the player in the form of the janitor. Going through the portals and completing the trials will loosen the aquirer's grip on the galaxy. 
